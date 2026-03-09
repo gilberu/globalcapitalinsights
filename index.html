@@ -1,50 +1,55 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Capital Insights | Strategic Analysis</title>
     <style>
         body { background-color: #0b0e14; color: #e0e0e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
-        header { background-color: #161b22; padding: 20px; border-bottom: 2px solid #30363d; text-align: center; }
-        h1 { color: #d4af37; margin: 0; letter-spacing: 2px; text-transform: uppercase; }
-        .container { max-width: 900px; margin: auto; padding: 20px; }
-        .dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 30px; }
-        .card { background: #1c2128; padding: 15px; border-radius: 8px; border-left: 4px solid #d4af37; text-align: center; }
-        .card h3 { margin: 0; font-size: 0.8rem; color: #8b949e; }
-        .card p { margin: 5px 0; font-size: 1.2rem; font-weight: bold; }
-        .trend-up { color: #3fb950; }
-        .opening-analysis { background: #21262d; padding: 20px; border-radius: 8px; margin-bottom: 30px; font-style: italic; border: 1px solid #30363d; }
-        article { line-height: 1.8; }
-        h2 { color: #d4af37; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        header { background-color: #161b22; padding: 30px; border-bottom: 2px solid #30363d; text-align: center; }
+        h1 { color: #d4af37; margin: 0; letter-spacing: 3px; text-transform: uppercase; font-size: 1.8rem; }
+        .tagline { color: #8b949e; font-size: 0.9rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        .container { max-width: 900px; margin: auto; padding: 30px; }
+        .section-title { color: #d4af37; border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-top: 40px; text-transform: uppercase; font-size: 1.1rem; }
+        .dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 35px; margin-top: 20px; }
+        .card { background: #1c2128; padding: 15px; border-radius: 4px; border-left: 4px solid #d4af37; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        .card h3 { margin: 0; font-size: 0.75rem; color: #8b949e; text-transform: uppercase; }
+        .card p { margin: 8px 0 0 0; font-size: 1.3rem; font-weight: bold; }
+        .trend-up { color: #3fb950; font-size: 0.9rem; margin-left: 5px; }
+        .trend-down { color: #f85149; font-size: 0.9rem; margin-left: 5px; }
+        .opening-analysis { background: #21262d; padding: 25px; border-radius: 8px; margin-bottom: 40px; border: 1px solid #30363d; line-height: 1.6; }
+        .opening-label { color: #d4af37; font-weight: bold; display: block; margin-bottom: 10px; text-transform: uppercase; font-size: 0.8rem; }
+        article { line-height: 1.9; font-size: 1.05rem; color: #c9d1d9; }
+        p { margin-bottom: 20px; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Global Capital Insights</h1>
-    <p>Intelligence for the Global Investor</p>
+    <div class="tagline">Strategic Intelligence for the Global Institutional Investor</div>
 </header>
 
 <div class="container">
-    <section>
-        <h2>The Daily Capital Compass</h2>
-        <div class="dashboard">
-            <div class="card"><h3>Brent Crude</h3><p>$84.20 <span class="trend-up">▲ 3.2%</span></p></div>
-            <div class="card"><h3>Gold (XAU)</h3><p>$2,150.40 <span class="trend-up">▲ 0.8%</span></p></div>
-            <div class="card"><h3>DXY Index</h3><p>103.85 <span>▼ 0.2%</span></p></div>
-            <div class="card"><h3>US 10Y Yield</h3><p>4.15% <span>Stable</span></p></div>
-        </div>
-    </section>
+    <h2 class="section-title">The Daily Capital Compass</h2>
+    <div class="dashboard">
+        <div class="card"><h3>Brent Crude</h3><p>$84.20 <span class="trend-up">▲ 3.2%</span></p></div>
+        <div class="card"><h3>Gold (XAU)</h3><p>$2,150.40 <span class="trend-up">▲ 0.8%</span></p></div>
+        <div class="card"><h3>DXY Index</h3><p>103.85 <span class="trend-down">▼ 0.2%</span></p></div>
+        <div class="card"><h3>US 10Y Yield</h3><p>4.15% <span style="color:#8b949e; font-size: 0.8rem;">STABLE</span></p></div>
+    </div>
 
     <section class="opening-analysis">
-        <strong>Análisis de Apertura (09 Mar 2026):</strong> "El mercado amanece con los ojos puestos en el Estrecho de Ormuz. El Brent consolida los $84 tras la confirmación de daños en la infraestructura. El capital fluye hacia activos de refugio. Recomendamos vigilar la volatilidad en el transporte marítimo."
+        <span class="opening-label">Market Opening Analysis (March 09, 2026)</span>
+        "Markets open under extreme geopolitical duress as tension in the Strait of Hormuz escalates. Brent Crude consolidates at $84 following confirmed infrastructure damage. Capital flight to safe-haven assets (Gold/Treasuries) remains the primary trend. We recommend strict monitoring of maritime logistics volatility and shipping insurance premiums."
     </section>
 
     <article>
-        <h2>US–Israel–Iran Conflict: The 2026 Black Swan</h2>
-        <p>El reciente escalamiento en el Estrecho de Ormuz representa el riesgo geopolítico más significativo para los mercados energéticos en la última década. Este evento, que definimos como un "Cisne Negro", altera no solo el precio del crudo sino las rutas logísticas globales...</p>
-        </article>
+        <h2 class="section-title">US–Israel–Iran Conflict: The 2026 Black Swan</h2>
+        <p>The recent escalation in the Strait of Hormuz represents the most significant geopolitical risk to energy markets in the last decade. This event, which we define as a classic <strong>"Black Swan,"</strong> fundamentally alters global logistics routes and price discovery mechanisms for crude oil.</p>
+        
+        <p>As the conflict develops, investors must look beyond immediate volatility. The real strategic impact lies in the <em>Shipping Disruption</em> and the subsequent re-pricing of global supply chains. For institutional portfolios, protection of capital now depends on navigating the intersection of energy security and maritime law.</p>
+    </article>
 </div>
 
 </body>
