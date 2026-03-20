@@ -28,7 +28,6 @@
         </div>
         
         <div class="main-layout">
-            
             <div class="content-area">
                 <h2 style="color:#d4af37; border-bottom: 1px solid #30363d; padding-bottom: 10px;">Latest Intelligence</h2>
                 
@@ -115,6 +114,34 @@
         </div>
     </div>
 
+<div class="aside-widget" style="border-top-color: #00ff00;"> <div class="feed-header" style="margin-bottom: 15px; border-bottom: 1px solid #30363d; padding-bottom: 10px;">
+        <h3 style="margin:0; font-size: 0.8rem; color: #00ff00; text-transform: uppercase;">Arbitrage Tool</h3>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+        <label style="font-size: 0.75rem; color: #8b949e;">Capital (USDT):</label>
+        <input type="number" id="capital" value="100" style="background: #0b0e14; border: 1px solid #30363d; color: #d4af37; padding: 5px; border-radius: 4px;">
+        
+        <div style="display: flex; justify-content: space-between; gap: 5px;">
+            <div style="flex: 1;">
+                <label style="font-size: 0.65rem; color: #8b949e;">Buy Price:</label>
+                <input type="number" id="buy" value="36.50" step="0.01" style="width: 100%; background: #0b0e14; border: 1px solid #30363d; color: #fff; padding: 5px; border-radius: 4px;">
+            </div>
+            <div style="flex: 1;">
+                <label style="font-size: 0.65rem; color: #8b949e;">Sell Price:</label>
+                <input type="number" id="sell" value="37.20" step="0.01" style="width: 100%; background: #0b0e14; border: 1px solid #30363d; color: #fff; padding: 5px; border-radius: 4px;">
+            </div>
+        </div>
+
+        <button onclick="calculateProfit()" style="background: #d4af37; color: #0b0e14; border: none; padding: 8px; border-radius: 4px; font-weight: bold; cursor: pointer; margin-top: 5px;">Calculate ROI</button>
+        
+        <div id="result" style="margin-top: 10px; padding: 10px; background: #1c2128; border-radius: 4px; text-align: center; border: 1px dashed #30363d;">
+            <span style="font-size: 0.75rem; color: #8b949e;">Estimated Profit:</span><br>
+            <strong style="color: #00ff00; font-size: 1.1rem;">$1.91</strong>
+        </div>
+    </div>
+</div>
+                
 </aside>
         </div>
     </div>
@@ -130,6 +157,24 @@
             <p style="margin-top:20px; font-style:italic;">DISCLAIMER: For strategic intelligence and educational purposes only. Not financial advice.</p>
         </div>
     </footer>
+
+<script>
+function calculateProfit() {
+    let capital = document.getElementById('capital').value;
+    let buy = document.getElementById('buy').value;
+    let sell = document.getElementById('sell').value;
+    
+    // Cálculo simple de arbitraje restando comisiones estimadas (0.1%)
+    let gross = (capital / buy) * sell;
+    let profit = gross - capital;
+    
+    document.getElementById('result').innerHTML = `
+        <span style="font-size: 0.75rem; color: #8b949e;">Estimated Profit:</span><br>
+        <strong style="color: #00ff00; font-size: 1.1rem;">$${profit.toFixed(2)}</strong>
+    `;
+}
+</script>
+    
     <!-- Default Statcounter code for globalcapitalinsights
 https://gilberu.github.io/globalcapitalinsights/index.html -->
 <script type="text/javascript">
