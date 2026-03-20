@@ -19,6 +19,76 @@
     </header>
 
     <div class="container">
+        <div class="intel-toolbar" style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+    
+    <div class="toolbar-widget" style="border-top-color: #ff9900;">
+        <div class="toolbar-header" style="border-bottom-color: #ff9900; margin-bottom: 15px;">
+            <h4 style="margin:0; font-size: 0.8rem; color: #ff9900; text-transform: uppercase;">Sentiment</h4>
+        </div>
+        <div style="text-align: center;">
+            <div style="font-size: 1.1rem; font-weight: bold; color: #ff4c4c; margin-bottom: 10px;">EXTREME FEAR</div>
+            
+            <div style="width: 100%; height: 8px; background: #30363d; border-radius: 10px; margin: 10px 0; overflow: hidden;">
+                <div style="width: 18%; height: 100%; background: linear-gradient(90deg, #ff4c4c, #ff9900); border-radius: 10px;"></div>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; font-size: 0.6rem; color: #8b949e; margin-bottom: 10px;">
+                <span>0 (FEAR)</span>
+                <span>100 (GREED)</span>
+            </div>
+            <p style="font-size: 0.7rem; color: #8b949e; margin: 0; line-height: 1.3;">Investors retreat to safe havens (DXY/Gold).</p>
+        </div>
+    </div>
+
+    <div class="toolbar-widget" style="border-top-color: #00ff00;">
+        <div class="toolbar-header" style="border-bottom-color: #00ff00; margin-bottom: 15px;">
+            <h4 style="margin:0; font-size: 0.8rem; color: #00ff00; text-transform: uppercase;">Arbitrage (USDT/VES)</h4>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+            <input type="number" id="capital_tb" value="100" style="background: #0b0e14; border: 1px solid #30363d; color: #d4af37; padding: 6px; border-radius: 4px; font-size: 0.8rem; width: 100%;">
+            
+            <div style="display: flex; justify-content: space-between; gap: 5px;">
+                <input type="number" id="buy_tb" value="36.50" step="0.01" style="flex:1; background: #0b0e14; border: 1px solid #30363d; color: #fff; padding: 6px; border-radius: 4px; font-size: 0.8rem; min-width: 0;">
+                <input type="number" id="sell_tb" value="37.20" step="0.01" style="flex:1; background: #0b0e14; border: 1px solid #30363d; color: #fff; padding: 6px; border-radius: 4px; font-size: 0.8rem; min-width: 0;">
+            </div>
+
+            <button onclick="calculateProfit_tb()" style="background: #00ff00; color: #0b0e14; border: none; padding: 8px; border-radius: 4px; font-weight: bold; cursor: pointer; margin-top: 5px; font-size: 0.8rem;">Calculate Profit</button>
+            
+            <div id="result_tb" style="margin-top: 10px; padding: 8px; background: #1c2128; border-radius: 4px; text-align: center; border: 1px dashed #30363d; min-height: 38px;">
+                <span style="font-size: 0.7rem; color: #8b949e;">ROI:</span> <strong style="color: #00ff00; font-size: 1.1rem;">$1.91</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="toolbar-widget" style="border-top-color: #58a6ff;"> <div class="toolbar-header" style="border-bottom-color: #58a6ff; margin-bottom: 15px;">
+            <h4 style="margin:0; font-size: 0.8rem; color: #58a6ff; text-transform: uppercase;">Converter</h4>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+            <input type="number" id="base_amount" value="1000" style="background: #0b0e14; border: 1px solid #30363d; color: #d4af37; padding: 6px; border-radius: 4px; font-size: 0.8rem; width: 100%;">
+            
+            <div style="display: flex; justify-content: space-between; gap: 5px; align-items: center;">
+                <span style="color: #c9d1d9; font-size: 0.9rem; font-weight: bold;">USD</span>
+                <span style="color: #8b949e;">⇆</span>
+                <select id="target_currency" style="background: #0b0e14; border: 1px solid #30363d; color: #c9d1d9; padding: 6px; border-radius: 4px; font-size: 0.8rem;">
+                    <option value="EUR">EUR</option>
+                    <option value="CNY">CNY</option>
+                    <option value="XAU">Gold (oz)</option>
+                    <option value="BTC">BTC</option>
+                </select>
+            </div>
+
+            <button onclick="convertCurrency()" style="background: #58a6ff; color: #0b0e14; border: none; padding: 8px; border-radius: 4px; font-weight: bold; cursor: pointer; margin-top: 5px; font-size: 0.8rem;">Convert Rate</button>
+            
+            <div id="convert_result" style="margin-top: 10px; padding: 8px; background: #1c2128; border-radius: 4px; text-align: center; border: 1px dashed #30363d; min-height: 38px;">
+                <span style="font-size: 0.7rem; color: #8b949e;">Rate:</span> <strong id="rate_val" style="color: #fff; font-size: 1.1rem;">-</strong>
+            </div>
+        </div>
+    </div>
+
+</div>
+        
         <div class="dashboard">
             <div class="card"><h3>DXY (Dollar Index)</h3><p>107.15 <span style="color:#00ff00; font-size:0.8rem;">▲</span></p></div>
             <div class="card"><h3>S&P 500</h3><p>5,082.10 <span style="color:#ff4c4c; font-size:0.8rem;">▼</span></p></div>
@@ -190,19 +260,45 @@
     </footer>
 
 <script>
-function calculateProfit() {
-    let capital = document.getElementById('capital').value;
-    let buy = document.getElementById('buy').value;
-    let sell = document.getElementById('sell').value;
+// === 1. ARBITRAGE CALCULATOR (Versión Toolbar) ===
+function calculateProfit_tb() {
+    let capital = parseFloat(document.getElementById('capital_tb').value) || 0;
+    let buy = parseFloat(document.getElementById('buy_tb').value) || 1;
+    let sell = parseFloat(document.getElementById('sell_tb').value) || 1;
     
-    // Cálculo simple de arbitraje restando comisiones estimadas (0.1%)
+    // Simple calc, fees assumed at 0.1% for P2P ByBit
     let gross = (capital / buy) * sell;
     let profit = gross - capital;
     
-    document.getElementById('result').innerHTML = `
-        <span style="font-size: 0.75rem; color: #8b949e;">Estimated Profit:</span><br>
+    document.getElementById('result_tb').innerHTML = `
+        <span style="font-size: 0.7rem; color: #8b949e;">ROI:</span> 
         <strong style="color: #00ff00; font-size: 1.1rem;">$${profit.toFixed(2)}</strong>
     `;
+}
+
+// === 2. MULTI-CURRENCY CONVERTER ===
+// (Esto es un ejemplo estático. Mañana a las 4am te doy los datos reales de conversión).
+function convertCurrency() {
+    let amount = parseFloat(document.getElementById('base_amount').value) || 0;
+    let target = document.getElementById('target_currency').value;
+    let resultElement = document.getElementById('rate_val');
+    
+    // Datos de conversión ficticios para el ejemplo
+    // (Actualización real a las 4:00 AM)
+    let rates = {
+        'EUR': 0.92, // 1 USD = 0.92 EUR
+        'CNY': 7.19, // 1 USD = 7.19 CNY
+        'XAU': 0.00042, // 1 USD = 0.00042 Gold oz
+        'BTC': 0.000014 // 1 USD = 0.000014 BTC
+    };
+    
+    let rate = rates[target] || 0;
+    let finalAmount = amount * rate;
+    
+    // Formateo de decimales dependiendo del activo
+    let decimals = (target === 'BTC' || target === 'XAU') ? 6 : 2;
+    
+    resultElement.innerHTML = `${finalAmount.toFixed(decimals)} <span style="font-size: 0.8rem; color: #8b949e;">${target}</span>`;
 }
 </script>
     
@@ -213,6 +309,7 @@ var sc_project=13211446;
 var sc_invisible=1; 
 var sc_security="337c91e0"; 
 </script>
+    
 <script type="text/javascript"
 src="https://www.statcounter.com/counter/counter.js" async></script>
 <noscript><div class="statcounter"><a title="Web Analytics Made Easy -
