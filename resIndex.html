@@ -7,257 +7,289 @@
     <meta name="description" content="Institutional strategic intelligence on global markets, energy, and digital assets.">
     <meta name="keywords" content="Finance, Strategy, 2026 Markets, Intelligence">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
-    <style>
-        body { background-color: #0b0e14; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
-        header { background-color: #161b22; padding: 30px; border-bottom: 2px solid #30363d; text-align: center; }
-        h1 { color: #d4af37; margin: 0; letter-spacing: 3px; text-transform: uppercase; }
-        .container { max-width: 1100px; margin: auto; padding: 30px; flex: 1; }
-        
-        /* Dashboard de Precios */
-        .dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 35px; }
-        .card { background: #1c2128; padding: 15px; border-radius: 4px; border-left: 4px solid #d4af37; }
-        .card h3 { margin-top: 0; font-size: 0.9rem; color: #8b949e; }
-        .card p { margin-bottom: 0; font-weight: bold; font-size: 1.2rem; }
-        
-        .opening-analysis { background: #21262d; padding: 20px; border-radius: 8px; margin-bottom: 40px; border: 1px solid #30363d; font-style: italic; }
-
-        /* Contenedor de Artículos en 2x2 */
-        .articles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        
-        .article-card { 
-            background: #1c2128; 
-            border-radius: 12px; 
-            border: 1px solid #30363d; 
-            overflow: hidden; 
-            display: flex; 
-            flex-direction: column;
-            transition: all 0.3s ease; 
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .article-card:hover { 
-            transform: translateY(-5px); 
-            background: #22272e; 
-            border-color: #d4af37; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 15px rgba(212, 175, 55, 0.1); 
-        }
-
-        .category-header { 
-            background: #2d333b; 
-            padding: 10px 15px; 
-            font-size: 0.7rem; 
-            font-weight: bold; 
-            text-transform: uppercase; 
-            color: #d4af37; 
-            border-bottom: 1px solid #30363d;
-            letter-spacing: 1px;
-            transition: background 0.3s ease;
-            /* Estos son los cambios clave */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .article-date {
-            color: #8b949e; /* Un gris más suave para que no compita con la categoría */
-            font-size: 0.65rem;
-        }
-
-        .article-card:hover .category-header { background: #373e47; }
-
-        .article-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
-        .article-content h2 { color: #d4af37; margin-top: 0; font-size: 1.25rem; line-height: 1.3; transition: color 0.3s ease; }
-        .article-content p { font-size: 0.95rem; color: #adb5bd; line-height: 1.6; flex-grow: 1; }
-
-        .read-more { 
-            align-self: flex-start;
-            color: #d4af37; 
-            text-decoration: none; 
-            font-weight: bold; 
-            text-transform: uppercase; 
-            font-size: 0.75rem; 
-            border: 1px solid #d4af37; 
-            padding: 8px 16px; 
-            border-radius: 4px; 
-            margin-top: 15px;
-            transition: all 0.3s ease;
-        }
-        
-        .article-card:hover .read-more { background: #d4af37; color: #0b0e14; }
-
-        /* Pie de Página Estilo Institucional */
-        footer {
-            background-color: #161b22;
-            color: #8b949e;
-            padding: 50px 20px;
-            border-top: 1px solid #30363d;
-            text-align: center;
-            margin-top: 60px;
-        }
-        .footer-content { max-width: 900px; margin: auto; }
-        .footer-logo { color: #d4af37; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; display: block; }
-        .footer-disclaimer { font-size: 0.75rem; line-height: 1.5; margin-top: 20px; color: #484f58; max-width: 700px; margin-left: auto; margin-right: auto; }
-
-        @media (max-width: 768px) { .articles-grid { grid-template-columns: 1fr; } }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Global Capital Insights</h1>
-        <p style="color:#8b949e">Institutional Strategic Intelligence</p>
+    <header style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 25px; border-bottom: 1px solid #30363d; padding-bottom: 20px;">
+        <img src="logo_cgi.png" alt="CGI Logo" style="height: 55px; width: auto;">
+        <h1 style="color:#c9d1d9; font-size: 1.8rem; margin: 0;">GLOBAL CAPITAL INSIGHTS</h1>
     </header>
 
     <div class="container">
         <div class="dashboard">
-            <div class="dashboard">
-                <div class="card"><h3>Brent Crude</h3><p>$105.66 <span style="color:#00ff00; font-size:0.8rem;">▲</span></p></div>
-                <div class="card"><h3>Gold (oz)</h3><p>$5,001.04 <span style="color:#ff4444; font-size:0.8rem;">▼</span></p></div>
-                <div class="card"><h3>DXY Index</h3><p>100.38 <span style="color:#00ff00; font-size:0.8rem;">▲</span></p></div>
-                <div class="card"><h3>Bitcoin</h3><p>$72,816 <span style="color:#00ff00; font-size:0.8rem;">▲</span></p></div>
-            </div>
+            <div class="card"><h3>DXY (Dollar Index)</h3><p>107.18 <span style="color:#00ff00; font-size:0.8rem;">▲</span></p></div>
+<div class="card"><h3>S&P 500</h3><p>5,142.20 <span style="color:#ff4c4c; font-size:0.8rem;">▼</span></p></div>
+<div class="card"><h3>BTC / USD</h3><p>$72,150 <span style="color:#00ff00; font-size:0.8rem;">▲</span></p></div>
+<div class="card"><h3>Gold (Spot)</h3><p>$2,374.50 <span style="color:#00ff00; font-size:0.8rem;">▲</span></p></div>
             
         </div>
 
         <div class="opening-analysis">
-            "March 16, 2026: Markets react to the U.S. Navy's official deployment of tanker escorts in the Strait of Hormuz. While Brent holds above $105, gold faces pressure as the DXY strengthens following Trump's warning to Beijing regarding strategic cooperation in the conflict zone."
+            "March 20, 2026. Market Alert: Dollar Hegemony Tested Amid Ormuz Tensions."
+The DXY holds firmly above 107 as geopolitical risk in the Middle East drives capital toward safe havens. While the S&P 500 faces pressure from rising energy costs, Gold (XAU) surges toward the $2,400 psychological barrier. Investors remain focused on maritime insurance hikes and the potential impact on global supply chains.
         </div>
 
-        <div class="articles-grid">
-            <a href="tech/industrial-cyber-resilience.html" class="article-card">
-                <div class="category-header">
-                    <span>Technological Strategy</span>
-                    <span class="article-date">March 16, 2026</span>
-                </div>
-                <div class="article-content">
-                    <h2>Industrial Cyber-Resilience: Protecting Physical Assets in the Age of Digital Warfare</h2>
-                    <p>In the industrial landscape of 2026, the line between a digital glitch and a physical catastrophe has blurred. As companies rush to implement Digital...</p>
-                    <span class="read-more">Read Full Analysis</span>
-                </div>
-            </a>
-
-            <a href="training/supply-chain-antifragility.html" class="article-card">
-                <div class="category-header">
-                    <span>Executive Training</span>
-                    <span class="article-date">March 16, 2026</span>
-                </div>
-                <div class="article-content">
-                    <h2>Supply Chain Antifragility: Risk Management in Volatile Maritime Routes</h2>
-                    <p>The standard concept of a "resilient" supply chain—one that simply survives a shock—is no longer sufficient in the face of the 2026 energy crisis...</p>
-                    <span class="read-more">Read Full Analysis</span>
-                </div>
-            </a>
+<div class="intel-toolbar" style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+    <div class="toolbar-widget" style="border-top-color: #ff9900;">
+        <div class="toolbar-header" style="border-bottom-color: #ff9900; margin-bottom: 15px;">
+            <h4 style="margin:0; font-size: 0.8rem; color: #ff9900; text-transform: uppercase;">Sentiment</h4>
+        </div>
+        <div style="text-align: center;">
+            <div style="font-size: 1.1rem; font-weight: bold; color: #ff4c4c; margin-bottom: 10px;">EXTREME FEAR</div>
             
-            <a href="finance/dxy-surge-analysis.html" class="article-card">
-                <div class="category-header">
-                    <span>Market Analysis</span>
-                    <span class="article-date">March 16, 2026</span>
-                </div>
-                <div class="article-content">
-                    <h2>The DXY Surge: A Double-Edged Sword for Emerging Economies</h2>
-                    <p>The U.S. Dollar Index (DXY) has seen a dramatic appreciation this March 2026, fueled by the geopolitical instability in the Middle East andnomic dominance...</p>
-                    <span class="read-more">Read Full Analysis</span>
-                </div>
-            </a>
+            <div style="width: 100%; height: 8px; background: #30363d; border-radius: 10px; margin: 10px 0; overflow: hidden;">
+                <div style="width: 18%; height: 100%; background: linear-gradient(90deg, #ff4c4c, #ff9900); border-radius: 10px;"></div>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; font-size: 0.6rem; color: #8b949e; margin-bottom: 10px;">
+                <span>0 (FEAR)</span>
+                <span>100 (GREED)</span>
+            </div>
+            <p style="font-size: 0.7rem; color: #8b949e; margin: 0; line-height: 1.3;">Investors retreat to safe havens (DXY/Gold).</p>
+        </div>
+    </div>
 
-            <a href="finance/black-swan-2026.html" class="article-card">
-                <div class="category-header">
-                    <span>Financial Analysis</span>
-                    <span class="article-date">March 15, 2026</span>
-                </div>
-                <div class="article-content">
-                    <h2>US–Israel–Iran Conflict and Capital Protection in High-Risk Zones</h2>
-                    <p>The escalation in the Strait of Hormuz represents the most significant geopolitical risk to energy markets in the last decade...</p>
-                    <span class="read-more">Read Full Analysis</span>
-                </div>
-            </a>
+    <div class="toolbar-widget" style="border-top-color: #00ff00;">
+        <div class="toolbar-header" style="border-bottom-color: #00ff00; margin-bottom: 15px;">
+            <h4 style="margin:0; font-size: 0.8rem; color: #00ff00; text-transform: uppercase;">Arbitrage (USDT/VES)</h4>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+            <input type="number" id="capital_tb" value="100" style="background: #0b0e14; border: 1px solid #30363d; color: #d4af37; padding: 6px; border-radius: 4px; font-size: 0.8rem; width: 100%;">
+            
+            <div style="display: flex; justify-content: space-between; gap: 5px;">
+                <input type="number" id="buy_tb" value="36.50" step="0.01" style="flex:1; background: #0b0e14; border: 1px solid #30363d; color: #fff; padding: 6px; border-radius: 4px; font-size: 0.8rem; min-width: 0;">
+                <input type="number" id="sell_tb" value="37.20" step="0.01" style="flex:1; background: #0b0e14; border: 1px solid #30363d; color: #fff; padding: 6px; border-radius: 4px; font-size: 0.8rem; min-width: 0;">
+            </div>
 
-            <a href="finance/deuda-venezuela-2026.html" class="article-card">
-                <div class="category-header">
-                    <span>Financial Analysis</span>
-                    <span class="article-date">March 15, 2026</span>
-                </div>
-                <div class="article-content">
-                    <h2>Venezuelan Debt Restructuring in the 2026 Scenario: Market Opportunity or Liquidity Risk?</h2>
-                    <p>As of March 2026, the Venezuelan bond market sits at a historic crossroads. With an external debt estimated between <strong>$150 and $170 billion...</strong></p>
-                    <span class="read-more">Read Full Analysis</span>
-                </div>
-            </a>
+            <button onclick="calculateProfit_tb()" style="background: #00ff00; color: #0b0e14; border: none; padding: 8px; border-radius: 4px; font-weight: bold; cursor: pointer; margin-top: 5px; font-size: 0.8rem;">Calculate Profit</button>
+            
+            <div id="result_tb" style="margin-top: 10px; padding: 8px; background: #1c2128; border-radius: 4px; text-align: center; border: 1px dashed #30363d; min-height: 38px;">
+                <span style="font-size: 0.7rem; color: #8b949e;">ROI:</span> <strong style="color: #00ff00; font-size: 1.1rem;">$1.91</strong>
+            </div>
+        </div>
+    </div>
 
-            <a href="tech/digital-twin-industry.html" class="article-card">
-                <div class="category-header">
-                    <span>Technological Strategy</span>
-                    <span class="article-date">March 15, 2026</span>
-                </div>
-                <div class="article-content">
-                    <h2>The Digital Twin: The Frontier of Operational Savings in Heavy Machinery and Industrial Plants</h2>
-                    <p>In the industrial landscape of 2026, efficiency is no longer a goal; it is a requirement for survival. As global energy and maintenance costs fluctuate...</p>
-                    <span class="read-more">Read Full Analysis</span>
-                </div>
-            </a>
+    <div class="toolbar-widget" style="border-top-color: #58a6ff;"> <div class="toolbar-header" style="border-bottom-color: #58a6ff; margin-bottom: 15px;">
+            <h4 style="margin:0; font-size: 0.8rem; color: #58a6ff; text-transform: uppercase;">Converter</h4>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+            <input type="number" id="base_amount" value="1000" style="background: #0b0e14; border: 1px solid #30363d; color: #d4af37; padding: 6px; border-radius: 4px; font-size: 0.8rem; width: 100%;">
+            
+            <div style="display: flex; justify-content: space-between; gap: 5px; align-items: center;">
+                <span style="color: #c9d1d9; font-size: 0.9rem; font-weight: bold;">USD</span>
+                <span style="color: #8b949e;">⇆</span>
+                <select id="target_currency" style="background: #0b0e14; border: 1px solid #30363d; color: #c9d1d9; padding: 6px; border-radius: 4px; font-size: 0.8rem;">
+                    <option value="EUR">EUR</option>
+                    <option value="CNY">CNY</option>
+                    <option value="XAU">Gold (oz)</option>
+                    <option value="BTC">BTC</option>
+                </select>
+            </div>
 
-            <a href="legal/hydrocarbons-law-venezuela.html" class="article-card">
-                <div class="category-header">
-                    <span>Legal Framework</span>
-                    <span class="article-date">March 15, 2026</span>
-                </div>
-                <div class="article-content">
-                    <h2>Reforms to the Organic Law of Hydrocarbons in Venezuela: Do New Licenses Guarantee Legal Certainty?</h2>
-                    <p>The structural adjustment of the Venezuelan energy sector has reached a critical milestone this March 2026 with new legislative reforms...</p>
-                    <span class="read-more">Read Full Analysis</span>
-                </div>
-            </a>
+            <button onclick="convertCurrency()" style="background: #58a6ff; color: #0b0e14; border: none; padding: 8px; border-radius: 4px; font-weight: bold; cursor: pointer; margin-top: 5px; font-size: 0.8rem;">Convert Rate</button>
+            
+            <div id="convert_result" style="margin-top: 10px; padding: 8px; background: #1c2128; border-radius: 4px; text-align: center; border: 1px dashed #30363d; min-height: 38px;">
+                <span style="font-size: 0.7rem; color: #8b949e;">Rate:</span> <strong id="rate_val" style="color: #fff; font-size: 1.1rem;">-</strong>
+            </div>
+        </div>
+    </div>
+</div>
 
-            <a href="training/executive-digital-literacy.html" class="article-card">
-                <div class="category-header">
-                    <span>Executive Training</span>
-                    <span class="article-date">March 15, 2026</span>
-                </div>
-                <div class="article-content">
-                    <h2>Executive Digital Literacy: Why 2026 CEOs Must Master Algorithm Logic and Cyber-Resilience</h2>
-                    <p>The era of the "non-technical CEO" has officially ended. Digital literacy is now part of the fiduciary duty to protect shareholder value...</p>
-                    <span class="read-more">Read Full Analysis</span>
-                </div>
-            </a>
+        <div class="main-layout">
+            <div class="content-area">
+                <h2 style="color:#d4af37; border-bottom: 1px solid #30363d; padding-bottom: 10px;">Latest Intelligence</h2>
+                
+                <div class="articles-grid">
+                    <a href="finance/brics-bridge-dollar-hegemony-260320.html" class="article-card">
+    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=500');"></div>
+    <div class="card-overlay"></div>
+    <div class="card-content">
+        <span class="card-category">Geopolitics | March 20, 2026</span>
+        <h3 class="card-title">The Dollar Hegemony vs. The BRICS Bridge</h3>
+        <p class="card-excerpt">Analysis of the new 2026 sovereign payment rails and the DXY 107.18 impact...</p>
+    </div>
+</a>
 
-            <a href="finance/gold-fiat-barrier.html" class="article-card">
-                <div class="category-header">
-                    <span>Market Analysis</span>
-                    <span class="article-date">March 15, 2026</span>
-                </div>
-                <div class="article-content">
-                    <h2>Gold vs. Fiat: The $2,200 Psychological Barrier and the New Reserve Era</h2>
-                    <p>Physical accumulation by Central Banks in the East is driving gold to historic resistance levels as confidence in fiat currencies wavers...</p>
-                    <span class="read-more">Read Full Analysis</span>
-                </div>
-            </a>
+<a href="finance/stablecoin-arbitrage-bybit-p2p-260320.html" class="article-card">
+    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1621416894569-0f39ed31d247?q=80&w=500');"></div>
+    <div class="card-overlay"></div>
+    <div class="card-content">
+        <span class="card-category">Market Analysis</span>
+        <h3 class="card-title">Stablecoin Arbitrage: Beyond the ByBit P2P</h3>
+        <p class="card-excerpt">Exploiting price gaps between USDT and local currencies during high volatility periods in the Gulf...</p>
+        <span class="card-date">March 20, 2026</span>
+    </div>
+</a>
 
-            <a href="finance/bitcoin-strategic-reserve.html" class="article-card">
-                <div class="category-header">
-                    <span>Digital Assets</span>
-                    <span class="article-date">March 15, 2026</span>
+<a href="tech/quantum-resistant-banking-260320.html" class="article-card">
+    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=500');"></div>
+    <div class="card-overlay"></div>
+    <div class="card-content">
+        <span class="card-category">Technological Strategy</span>
+        <h3 class="card-title">Quantum-Resistant Banking: The 2026 Shift</h3>
+        <p class="card-excerpt">Central banks are upgrading security protocols to shield global assets from the quantum threat...</p>
+        <span class="card-date">March 20, 2026</span>
+    </div>
+</a>
+
+<a href="finance/gold-vs-bitcoin-race-2400-260320.html" class="article-card">
+    <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1610375461246-83df859d849d?q=80&w=500');"></div>
+    <div class="card-overlay"></div>
+    <div class="card-content">
+        <span class="card-category">Wealth Preservation</span>
+        <h3 class="card-title">Gold vs. Digital Gold: The $2,400 Race</h3>
+        <p class="card-excerpt">With XAU at $2,374 and BTC at $72,150, we analyze which asset offers better protection today...</p>
+        <span class="card-date">March 20, 2026</span>
+    </div>
+</a>
                 </div>
-                <div class="article-content">
-                    <h2>BTC Strategic Reserve: The New Corporate Standard for Capital Protection</h2>
-                    <p>Publicly traded companies are increasingly converting fiat cash reserves into BTC to offset currency debasement and systemic risk...</p>
-                    <span class="read-more">Read Full Analysis</span>
+                    
+                <h2 style="color:#d4af37; border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-top: 60px;">Historical Reports</h2>
+                <div class="archive-list">
+                    <a href="training/sovereign-funds-diversification-260317.html" class="archive-item"><span>The "Golden Age" of Sovereign Funds</span><span>March 17, 2026</span></a>
+                    <a href="tech/industrial-cyber-resilience-260316.html" class="archive-item"><span>Industrial Cyber-Resilience: Protecting Physical Assets</span><span>March 16, 2026</span></a>
+                    <a href="training/supply-chain-antifragility-260316.html" class="archive-item"><span>Supply Chain Antifragility: Risk Management in Volatile Maritime Routes</span><span>March 16, 2026</span></a>
+                    <a href="finance/dxy-surge-analysis-260316.html" class="archive-item"><span>The DXY Surge: A Double-Edged Sword for Emerging Economies</span><span>March 16, 2026</span></a>
+                    <a href="finance/gold-fiat-barrier-260316.html" class="archive-item"><span>Gold vs Fiat: $2,200 Barrier Analysis</span><span>March 16, 2026</span></a>
+                    <a href="finance/bitcoin-strategic-reserve-260316.html" class="archive-item"><span>BTC: The New Corporate Reserve Standard</span><span>March 16, 2026</span></a>
+                    <a href="finance/black-swan-2026-260315.html" class="archive-item"><span>US–Israel–Iran Conflict Analysis</span><span>March 15, 2026</span></a>
+                    <a href="finance/deuda-venezuela-2026-260315.html" class="archive-item"><span>Venezuelan Debt Restructuring Scenario</span><span>March 15, 2026</span></a>
+                    <a href="tech/digital-twin-industry-260315.html" class="archive-item"><span>Digital Twin: Operational Efficiency Strategy</span><span>March 15, 2026</span></a>
+                    <a href="legal/hydrocarbons-law-venezuela-260315.html" class="archive-item"><span>Venezuelan Hydrocarbons Law Reform</span><span>March 15, 2026</span></a>
+                    <a href="training/executive-digital-literacy-260315.html" class="archive-item"><span>Executive Digital Literacy: Algorithm Logic</span><span>March 15, 2026</span></a>
                 </div>
-            </a>
+            </div>
+            
+            <aside class="live-feed-container">
+                <div class="aside-widget" style="border-top: 3px solid #ff4c4c; background: #161b22; padding: 15px; border-radius: 6px; margin-bottom: 20px;">
+    <div style="display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-bottom: 15px;">
+        <span style="color: #ff4c4c; font-size: 1.2rem;">●</span>
+        <h3 style="margin:0; font-size: 0.8rem; color: #ff4c4c; text-transform: uppercase; letter-spacing: 1px;">Crisis Tracker: Iran-US</h3>
+    </div>
+    
+    <div style="border-left: 2px solid #30363d; margin-left: 10px; padding-left: 15px;">
+        <div style="margin-bottom: 20px; position: relative;">
+            <div style="position: absolute; left: -21px; top: 0; width: 10px; height: 10px; background: #ff4c4c; border-radius: 50%; box-shadow: 0 0 8px #ff4c4c;"></div>
+            <span style="font-size: 0.65rem; color: #8b949e; display: block;">20 MAR | 15:30 UTC</span>
+            <p style="font-size: 0.8rem; color: #c9d1d9; margin: 5px 0; line-height: 1.3;"><strong>Hormuz Lockdown:</strong> Iran Revolutionary Guard confirms full naval blockade. Oil tankers redirected.</p>
+        </div>
+        <div style="margin-bottom: 20px; position: relative;">
+            <div style="position: absolute; left: -21px; top: 0; width: 10px; height: 10px; background: #d4af37; border-radius: 50%;"></div>
+            <span style="font-size: 0.65rem; color: #8b949e; display: block;">20 MAR | 11:15 UTC</span>
+            <p style="font-size: 0.8rem; color: #c9d1d9; margin: 5px 0; line-height: 1.3;"><strong>Market Shock:</strong> Lloyd’s of London triples war risk premiums for Gulf transit.</p>
+        </div>
+        <div style="margin-bottom: 0; position: relative;">
+            <div style="position: absolute; left: -21px; top: 0; width: 10px; height: 10px; background: #30363d; border-radius: 50%;"></div>
+            <span style="font-size: 0.65rem; color: #8b949e; display: block;">19 MAR | 23:45 UTC</span>
+            <p style="font-size: 0.8rem; color: #c9d1d9; margin: 5px 0; line-height: 1.3;"><strong>US Response:</strong> Fifth Fleet deploys additional destroyer units to the Gulf of Oman.</p>
+        </div>
+    </div>
+</div>
+         
+    <div class="aside-widget">
+        <div class="feed-header" style="display: flex; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #30363d; padding-bottom: 10px;">
+            <span class="live-dot"></span>
+            <h3 style="margin:0; font-size: 0.9rem; color: #d4af37; text-transform: uppercase;">Live Intelligence</h3>
+        </div>
+        
+        <div class="news-ticker-item">
+    <span class="tag tag-critical">CRITICAL</span>
+    <strong>Hormuz Crisis:</strong> Brent spikes to $94.20 as tanker insurance premiums triple.
+</div>
+<div class="news-ticker-item">
+    <span class="tag tag-m-a">MARKETS</span>
+    <strong>Yield Surge:</strong> US 10-year Treasury reaches 4.35% amid hawkish Fed sentiment.
+</div>
+        
+    </div>
+
+    <div class="aside-widget" style="border-top-color: #8b949e;"> <div class="feed-header" style="margin-bottom: 15px; border-bottom: 1px solid #30363d; padding-bottom: 10px;">
+            <h3 style="margin:0; font-size: 0.8rem; color: #8b949e; text-transform: uppercase; letter-spacing: 1px;">Global Press Picks</h3>
+        </div>
+
+        <div class="press-item" style="margin-top: 15px; border-left: 2px solid #d4af37; padding-left: 10px;">
+            <span style="font-size: 0.65rem; color: #d4af37; font-weight: bold; text-transform: uppercase;">Financial Times</span>
+            <h4 style="margin: 5px 0; font-size: 0.85rem; color: #c9d1d9; line-height: 1.2;">"The Silent Run on Fiat: Why 2026 is the Year of Hard Assets"</h4>
+            <p style="font-size: 0.75rem; color: #8b949e; margin-top: 5px;">Exclusive report on how pension funds are hedging with gold and BTC.</p>
+        </div>
+    </div>      
+</aside>
         </div>
     </div>
 
     <footer>
-        <div class="footer-content">
-            <span class="footer-logo">Global Capital Insights</span>
+        <div class="container" style="text-align:center; padding:40px 20px; color:#8b949e; font-size:0.8rem;">
+            <p style="color:#d4af37; font-weight:bold; font-size:1.1rem; margin-bottom:10px;">Global Capital Insights</p>
             <p>
                 <a href="privacy-policy.html" style="color:#d4af37; text-decoration:none;">Privacy Policy</a> | 
                 <a href="terms-of-service.html" style="color:#d4af37; text-decoration:none;">Terms of Service</a>
             </p>
-            <p>© 2026 Global Capital Insights. All rights reserved. Strategic Intelligence Division.</p>
-            <p class="footer-disclaimer">
-                DISCLAIMER: The information provided on this portal is for strategic intelligence and educational purposes only. It does not constitute financial, legal, or investment advice. Global Capital Insights is not responsible for any losses incurred based on the interpretation of this data.
-            </p>
+            <p>© 2026 Global Capital Insights. Strategic Intelligence Division.</p>
+            <p style="margin-top:20px; font-style:italic;">DISCLAIMER: For strategic intelligence and educational purposes only. Not financial advice.</p>
         </div>
     </footer>
+
+<script>
+// === 1. ARBITRAGE CALCULATOR (Versión Toolbar) ===
+function calculateProfit_tb() {
+    let capital = parseFloat(document.getElementById('capital_tb').value) || 0;
+    let buy = parseFloat(document.getElementById('buy_tb').value) || 1;
+    let sell = parseFloat(document.getElementById('sell_tb').value) || 1;
+    
+    // Simple calc, fees assumed at 0.1% for P2P ByBit
+    let gross = (capital / buy) * sell;
+    let profit = gross - capital;
+    
+    document.getElementById('result_tb').innerHTML = `
+        <span style="font-size: 0.7rem; color: #8b949e;">ROI:</span> 
+        <strong style="color: #00ff00; font-size: 1.1rem;">$${profit.toFixed(2)}</strong>
+    `;
+}
+
+// === 2. MULTI-CURRENCY CONVERTER ===
+// (Esto es un ejemplo estático. Mañana a las 4am te doy los datos reales de conversión).
+function convertCurrency() {
+    let amount = parseFloat(document.getElementById('base_amount').value) || 0;
+    let target = document.getElementById('target_currency').value;
+    let resultElement = document.getElementById('rate_val');
+    
+    // Datos de conversión ficticios para el ejemplo
+    // (Actualización real a las 4:00 AM)
+    let rates = {
+    'EUR': 0.918,     // 1 USD = 0.918 EUR
+    'CNY': 7.21,      // 1 USD = 7.21 CNY
+    'XAU': 0.000421,  // 1 USD = 0.000421 Onzas de Oro
+    'BTC': 0.0000138  // 1 USD = 0.0000138 BTC
+};
+    
+    
+    let rate = rates[target] || 0;
+    let finalAmount = amount * rate;
+    
+    // Formateo de decimales dependiendo del activo
+    let decimals = (target === 'BTC' || target === 'XAU') ? 6 : 2;
+    
+    resultElement.innerHTML = `${finalAmount.toFixed(decimals)} <span style="font-size: 0.8rem; color: #8b949e;">${target}</span>`;
+}
+</script>
+    
+    <!-- Default Statcounter code for globalcapitalinsights
+https://gilberu.github.io/globalcapitalinsights/index.html -->
+<script type="text/javascript">
+var sc_project=13211446; 
+var sc_invisible=1; 
+var sc_security="337c91e0"; 
+</script>
+    
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js" async></script>
+<noscript><div class="statcounter"><a title="Web Analytics Made Easy -
+Statcounter" href="https://statcounter.com/" target="_blank"><img
+class="statcounter" src="https://c.statcounter.com/13211446/0/337c91e0/1/"
+alt="Web Analytics Made Easy - Statcounter"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
 </body>
 </html>
