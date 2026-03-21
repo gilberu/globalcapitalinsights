@@ -104,10 +104,19 @@ The DXY holds firmly above 107 as geopolitical risk in the Middle East drives ca
 
 
                 <div class="articles-grid">
+                    <a href="finance/top-5-crypto-law-firms-210326.html" class="article-card" style="border: 2px solid #d4af37; box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);">
+    <div class="card-bg" style="background-image: url('img/gold-vs-bitcoin-fusion.jpg'); opacity: 0.3;"></div>
+    <div class="card-content">
+        <span class="card-category" style="color: #d4af37;">Elite Rankings | March 21, 2026</span>
+        <h3 class="card-title" style="color: #fff;">Top 5 Global Law Firms for Crypto Compliance</h3>
+        <p class="card-excerpt">Analysis of the legal titans securing the future of digital assets in 2026...</p>
+    </div>
+</a>
+                    
                     <a href="tech/top-5-blockchain-auditors-260320.html" class="article-card" style="border: 2px solid #00ff00; box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);">
     <div class="card-bg" style="background-image: url('img/blockchain-security-shield.png'); opacity: 0.3;"></div>
     <div class="card-content">
-        <span class="card-category" style="color: #00ff00;">Clasificación de Élite | March 20, 2026</span>
+        <span class="card-category" style="color: #00ff00;">Elite Rankings | March 20, 2026</span>
         <h3 class="card-title" style="color: #fff;">Guardians of the Chain: Top 5 Blockchain Auditors</h3>
         <p class="card-excerpt">Análisis de las firmas de seguridad y auditoría de protocolos más confiables en 2026...</p>
     </div>
@@ -263,11 +272,11 @@ function convertCurrency() {
     // === ACTUALIZACIÓN ESTRATÉGICA MARZO 20, 2026 ===
     // Calculado según precios del reporte: BTC $72,150 | XAU $2,374.50 | DXY 107.18
     let rates = {
-        'EUR': 0.918,       // Constante
-        'CNY': 7.21,       // Constante
-        'XAU': 0.00042114,  // 1 / 2374.50 (Onzas de Oro por cada dólar)
-        'BTC': 0.00001386   // 1 / 72150 (BTC por cada dólar)
-    };
+    'EUR': 0.918,
+    'CNY': 7.21,
+    'XAU': 0.00042114, 
+    'BTC': 0.00001380   // Actualizado a $72,430
+};
     
     let rate = rates[target] || 0;
     let finalAmount = amount * rate;
