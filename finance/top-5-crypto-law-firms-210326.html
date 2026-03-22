@@ -23,8 +23,22 @@
         .legal-firm-entry { margin-bottom: 80px; display: grid; grid-template-columns: 220px 1fr; gap: 30px; align-items: start; border-bottom: 1px dashed var(--border-dim); padding-bottom: 50px; }
         .legal-firm-entry:last-child { border-bottom: none; }
 
+        /* Contenedor adaptado para capturas de pantalla */
         .firm-logo-container { text-align: center; position: sticky; top: 20px; }
-        .firm-logo { width: 100%; height: auto; max-width: 180px; border-radius: 4px; background: #fff; padding: 15px; border: 1px solid var(--border-dim); box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        
+        /* Modificación táctica para capturas */
+        .firm-logo { 
+            width: 100%; 
+            height: 110px; /* Altura fija para uniformidad */
+            max-width: 180px; 
+            border-radius: 4px; 
+            background: #fff; /* Fondo blanco para contraste */
+            padding: 5px; /* Menos padding */
+            border: 2px solid var(--border-dim); 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5); 
+            object-fit: contain; /* Ajusta la captura sin estirarla */
+            image-rendering: pixelated; /* Mantiene nitidez en capturas pequeñas */
+        }
         
         h2.firm-name { color: var(--text-main); font-size: 1.7rem; margin-top: 0; margin-bottom: 15px; border-left: 4px solid var(--accent-gold); padding-left: 15px; }
 
@@ -61,7 +75,7 @@
     <div class="meta-data">Published: March 21, 2026 | Category: Elite Analysis</div>
 
     <div class="legal-firm-entry">
-        <div class="firm-logo-container"><img src="../img/logo-latham.png" alt="Latham Logo" class="firm-logo"></div>
+        <div class="firm-logo-container"><img src="../img/logo-latham.png" alt="Latham Captura" class="firm-logo"></div>
         <div class="firm-content">
             <h2 class="firm-name">1. Latham & Watkins - The Sovereignty Defense Specialists</h2>
             <p class="firm-analysis">Latham & Watkins remains the undisputed leader by building the legal bridges that connect traditional finance to decentralized payment rails. They have been key advisors for G20 nations on CBDC integration strategies.</p>
@@ -82,7 +96,7 @@
     </div>
 
     <div class="legal-firm-entry">
-        <div class="firm-logo-container"><img src="../img/logo-skadden.png" alt="Skadden Logo" class="firm-logo"></div>
+        <div class="firm-logo-container"><img src="../img/logo-skadden.png" alt="Skadden Captura" class="firm-logo"></div>
         <div class="firm-content">
             <h2 class="firm-name">2. Skadden - The M&A and Institutional Stablecoin Authority</h2>
             <p class="firm-analysis">Skadden is the firm of choice for large financial entities moving capital into digital assets. They specialize in the legal architecture for institutional-grade, gold-backed stablecoins.</p>
@@ -103,7 +117,7 @@
     </div>
 
     <div class="legal-firm-entry">
-        <div class="firm-logo-container"><img src="../img/logo-clifford.png" alt="Clifford Chance Logo" class="firm-logo"></div>
+        <div class="firm-logo-container"><img src="../img/logo-clifford.png" alt="Clifford Captura" class="firm-logo"></div>
         <div class="firm-content">
             <h2 class="firm-name">3. Clifford Chance - The Cross-Border Regulatory Titan</h2>
             <p class="firm-analysis">With a massive presence in London and Singapore, Clifford Chance dominates the European and Asian digital asset markets, specialized in MiCA II and the Digital Pound protocols.</p>
@@ -124,9 +138,9 @@
     </div>
 
     <div class="legal-firm-entry">
-        <div class="firm-logo-container"><img src="../img/logo-freshfields.png" alt="Freshfields Logo" class="firm-logo"></div>
+        <div class="firm-logo-container"><img src="../img/logo-freshfields.png" alt="Freshfields Captura" class="firm-logo"></div>
         <div class="firm-content">
-            <h2 class="firm-name">4. Freshfields - The Strategic Intelligence and Sanctions Experts</h2>
+            <h2 class="firm-name">4. Freshfields - The Strategic Intelligence Experts</h2>
             <p class="firm-analysis">Freshfields provides high-level defense against OFAC enforcement and international sanctions, ensuring that global entities can navigate the complex 2026 geopolitical landscape.</p>
             <div class="capabilities-list">
                 <h4>Core Institutional Capabilities:</h4>
@@ -145,9 +159,9 @@
     </div>
 
     <div class="legal-firm-entry">
-        <div class="firm-logo-container"><img src="../img/logo-kirkland.png" alt="Kirkland Logo" class="firm-logo"></div>
+        <div class="firm-logo-container"><img src="../img/logo-kirkland.png" alt="Kirkland Captura" class="firm-logo"></div>
         <div class="firm-content">
-            <h2 class="firm-name">5. Kirkland & Ellis - The Private Equity & Crypto Hedge Fund Powerhouse</h2>
+            <h2 class="firm-name">5. Kirkland & Ellis - The Private Equity Powerhouse</h2>
             <p class="firm-analysis">Kirkland & Ellis is the dominant force for crypto-native hedge funds and private equity firms looking to dominate the 2026 secondary markets and liquidation auctions.</p>
             <div class="capabilities-list">
                 <h4>Core Institutional Capabilities:</h4>
