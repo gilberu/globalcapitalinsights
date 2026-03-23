@@ -6,28 +6,28 @@
     <title>Global Capital Insights | Intelligence Portal</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* ESTILOS DEL MENÚ NAVEGACIÓN */
-        .nav-bar { background: var(--bg-card); border-bottom: 1px solid var(--border-dim); padding: 10px 0; position: sticky; top: 0; z-index: 1000; }
+        /* ESTILOS DEL MENÚ NAVEGACIÓN (Ubicación Final) */
+        .nav-bar { background: var(--bg-card); border-bottom: 1px solid var(--border-dim); padding: 10px 0; }
         .nav-container { max-width: 1200px; margin: auto; display: flex; justify-content: center; gap: 30px; }
         .nav-link { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; transition: 0.3s; }
         .nav-link:hover { color: var(--accent-gold); }
 
-        /* ESTILOS DEL SLIDER (CARRUSEL) */
-        .slider-container { position: relative; width: 100%; height: 400px; overflow: hidden; margin-top: 20px; border-radius: 8px; border: 1px solid var(--border-dim); background: #000; }
+        /* ESTILOS DEL SLIDER - INTEGRADO (Opción B) */
+        .slider-container { position: relative; width: 100%; height: 350px; overflow: hidden; border-radius: 8px; border: 1px solid var(--border-dim); background: #000; margin-bottom: 30px; }
         .slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; display: flex; align-items: flex-end; }
         .slide.active { opacity: 1; }
-        .slide-bg { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
-        .slide-content { position: relative; padding: 40px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); width: 100%; }
+        .slide-bg { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; }
+        .slide-content { position: relative; padding: 30px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); width: 100%; }
         .slide-tag { color: var(--accent-gold); font-size: 0.7rem; text-transform: uppercase; font-weight: bold; }
-        .slide-title { font-size: 2rem; margin: 10px 0; color: #fff; }
+        .slide-title { font-size: 1.8rem; margin: 10px 0; color: #fff; }
         
-        /* Controles Manuales */
-        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: var(--accent-gold); border: 1px solid var(--accent-gold); padding: 15px; cursor: pointer; z-index: 10; border-radius: 50%; transition: 0.3s; }
+        /* Controles */
+        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: var(--accent-gold); border: 1px solid var(--accent-gold); padding: 12px; cursor: pointer; z-index: 10; border-radius: 50%; transition: 0.3s; }
         .slider-btn:hover { background: var(--accent-gold); color: #000; }
-        .prev { left: 20px; }
-        .next { right: 20px; }
-        .dots-container { position: absolute; bottom: 15px; width: 100%; display: flex; justify-content: center; gap: 10px; }
-        .dot { width: 10px; height: 10px; background: rgba(255,255,255,0.3); border-radius: 50%; cursor: pointer; }
+        .prev { left: 15px; }
+        .next { right: 15px; }
+        .dots-container { position: absolute; bottom: 10px; width: 100%; display: flex; justify-content: center; gap: 8px; }
+        .dot { width: 8px; height: 8px; background: rgba(255,255,255,0.3); border-radius: 50%; cursor: pointer; }
         .dot.active { background: var(--accent-gold); }
     </style>
 </head>
@@ -49,77 +49,87 @@
     </nav>
 
     <div class="container">
-        <div class="slider-container" id="main-slider">
-            <button class="slider-btn prev" onclick="moveSlide(-1)">❮</button>
-            <button class="slider-btn next" onclick="moveSlide(1)">❯</button>
-            
-            <div class="slide active">
-                <img src="img/mica-law-bg.jpg" class="slide-bg">
-                <div class="slide-content">
-                    <span class="slide-tag">Regulatory & Law</span>
-                    <h2 class="slide-title">Navigating MiCA II: The New Gold Standard for Crypto Compliance</h2>
-                    <p>Analysis of the 2026 European framework for institutional asset issuers.</p>
-                </div>
-            </div>
+        <div class="dashboard">
+            <div class="card"><h3>DXY</h3><p>107.18 <span style="color:var(--accent-green);">▲</span></p></div>
+            <div class="card"><h3>S&P 500</h3><p>5,142.20 <span style="color:var(--accent-red);">▼</span></p></div>
+            <div class="card"><h3>BTC / USD</h3><p>$72,430 <span style="color:var(--accent-green);">▲</span></p></div>
+            <div class="card"><h3>Gold</h3><p>$2,374.50 <span style="color:var(--accent-green);">▲</span></p></div>
+        </div>
 
-            <div class="slide">
-                <img src="img/sodium-battery.jpg" class="slide-bg">
-                <div class="slide-content">
-                    <span class="slide-tag">Future Tech</span>
-                    <h2 class="slide-title">Beyond Lithium: The Rise of Sodium-Ion Batteries</h2>
-                    <p>How the 2026 supply chain crisis accelerated the salt-based energy revolution.</p>
-                </div>
-            </div>
-
-            <div class="slide">
-                <img src="img/mbridge-system.jpg" class="slide-bg">
-                <div class="slide-content">
-                    <span class="slide-tag">Digital Assets</span>
-                    <h2 class="slide-title">The mBridge Era: Neutralizing Financial Sanctions</h2>
-                    <p>The new sovereign digital payment rail that bypasses traditional SWIFT infrastructure.</p>
-                </div>
-            </div>
-
-            <div class="dots-container" id="dots"></div>
+        <div class="opening-analysis">
+            "March 21, 2026. Market Update: Resilience in Digital Assets Amid Sustained Geopolitical Risk."
+            ... [CONTENIDO COMPLETO] ...
         </div>
 
         <div class="main-layout">
             <div class="content-area">
-                <h2 style="color:#d4af37; border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-top: 30px;">Latest Analysis</h2>
+                
+                <div class="slider-container" id="main-slider">
+                    <button class="slider-btn prev" onclick="moveSlide(-1)">❮</button>
+                    <button class="slider-btn next" onclick="moveSlide(1)">❯</button>
+                    
+                    <div class="slide active">
+                        <img src="img/mica-law-bg.jpg" class="slide-bg">
+                        <div class="slide-content">
+                            <span class="slide-tag">Regulatory & Law</span>
+                            <h2 class="slide-title">Navigating MiCA II: The New Gold Standard for Crypto Compliance</h2>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="img/sodium-battery.jpg" class="slide-bg">
+                        <div class="slide-content">
+                            <span class="slide-tag">Future Tech</span>
+                            <h2 class="slide-title">Beyond Lithium: The Sodium-Ion Revolution</h2>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="img/mbridge-system.jpg" class="slide-bg">
+                        <div class="slide-content">
+                            <span class="slide-tag">Digital Assets</span>
+                            <h2 class="slide-title">The mBridge Era: Neutralizing Financial Sanctions</h2>
+                        </div>
+                    </div>
+                    <div class="dots-container" id="dots"></div>
+                </div>
+
+                <h2 style="color:#d4af37; border-bottom: 1px solid #30363d; padding-bottom: 10px;">Latest Analysis</h2>
                 <div class="articles-grid">
+                    <a href="finance/top-5-crypto-law-firms-210326.html" class="article-card card-legal">
+                        <div class="card-bg" style="background-image: url('img/crypto-law-justice.png');"></div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <span class="card-category">Elite Rankings | March 21, 2026</span>
+                            <h3 class="card-title">Top 5 Crypto Law Firms</h3>
+                        </div>
+                    </a>
+                    </div>
+
+                <h2 style="color:#d4af37; border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-top: 60px;">Historical Reports</h2>
+                <div class="archive-list">
                     </div>
             </div>
 
             <aside class="live-feed-container">
-                <div class="aside-widget">
-                    <h3 style="color:var(--accent-gold); font-size:0.8rem; margin-bottom:15px;">MARKET TERMINAL</h3>
-                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; font-size:0.75rem;">
-                        <div>DXY: <span style="color:var(--accent-green);">107.18 ▲</span></div>
-                        <div>XAU: <span style="color:var(--accent-green);">$2,374 ▲</span></div>
-                        <div>BTC: <span style="color:var(--accent-green);">$72,430 ▲</span></div>
-                        <div>SPX: <span style="color:var(--accent-red);">5,142 ▼</span></div>
-                    </div>
-                </div>
-
-                <div class="aside-widget" style="border-top: 2px solid var(--accent-gold);">
-                    <h3 style="font-size:0.8rem; color:var(--accent-gold);">SENTIMENT: EXTREME FEAR</h3>
-                    </div>
-
-                <div class="aside-widget">
-                    <h3 style="font-size:0.8rem; color:var(--accent-green);">P2P ARBITRAGE (VES)</h3>
-                    </div>
-
                 <div class="aside-widget" style="border-top: 3px solid #ff4c4c;">
                     <div class="tracker-scroll">
-                        <div style="margin-bottom: 20px; position: relative; border-left: 2px solid #ff4c4c; padding-left: 15px;">
-                            <span style="font-size: 0.65rem; color: #8b949e;">22 MAR | 14:20 UTC</span>
-                            <p style="font-size: 0.8rem;"><strong>Cyber-Defense:</strong> Iran deploys 'Shield-26' protocol against carrier signal interference.</p>
-                        </div>
                         </div>
                 </div>
+
+                <div class="aside-widget">
+                    </div>
+
+                <div class="aside-widget">
+                    </div>
             </aside>
         </div>
     </div>
+
+    <footer>
+        <div class="container" style="text-align:center; padding:40px 20px; color:#8b949e; font-size:0.8rem; border-top: 1px solid #30363d; margin-top: 60px;">
+            <p style="color:#d4af37; font-weight:bold; font-size:1.1rem;">Global Capital Insights</p>
+            <p>© 2026 Global Capital Insights. Strategic Intelligence Division.</p>
+        </div>
+    </footer>
 
     <script>
         let slideIndex = 0;
@@ -127,7 +137,6 @@
         const slides = document.querySelectorAll('.slide');
         const dotsContainer = document.getElementById('dots');
 
-        // Crear puntos dinámicamente
         slides.forEach((_, i) => {
             const dot = document.createElement('div');
             dot.classList.add('dot');
@@ -141,13 +150,11 @@
         function showSlides() {
             slides.forEach(s => s.classList.remove('active'));
             dots.forEach(d => d.classList.remove('active'));
-            
             slideIndex++;
             if (slideIndex > slides.length) slideIndex = 1;
-            
             slides[slideIndex-1].classList.add('active');
             dots[slideIndex-1].classList.add('active');
-            timer = setTimeout(showSlides, 7000); // 7 segundos
+            timer = setTimeout(showSlides, 7000); // 7 segs
         }
 
         function moveSlide(n) {
@@ -163,7 +170,6 @@
             showSlides();
         }
 
-        // Pausa al pasar el mouse
         const slider = document.getElementById('main-slider');
         slider.onmouseenter = () => clearTimeout(timer);
         slider.onmouseleave = () => timer = setTimeout(showSlides, 7000);
