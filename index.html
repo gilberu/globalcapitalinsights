@@ -7,7 +7,7 @@
     <meta name="description" content="Institutional strategic intelligence on global markets, energy, and digital assets.">
     <meta name="keywords" content="Finance, Business, Capital, Strategy, 2026 Markets, Intelligence">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
         /* ESTILOS DEL MENÚ NAVEGACIÓN (Ubicación Final) */
         .nav-bar { background: var(--bg-card); border-bottom: 1px solid var(--border-dim); padding: 10px 0; }
@@ -250,7 +250,7 @@
             </aside>
         </div>
     </div>
-
+    
     <footer style="border-top: 2px solid #d4af37; padding: 30px 20px;">
         <div class="container" style="text-align:center; padding:40px 20px; color:#8b949e; font-size:0.8rem;">
             <p style="color:#d4af37; font-weight:bold; font-size:1.1rem;">Global Capital Insights</p>
@@ -259,71 +259,7 @@
         </div>
     </footer>
 
-    <script>
-        function calculateProfit_tb() {
-            let capital = parseFloat(document.getElementById('capital_tb').value) || 0;
-            let buy = parseFloat(document.getElementById('buy_tb').value) || 1;
-            let sell = parseFloat(document.getElementById('sell_tb').value) || 1;
-            let gross = (capital / buy) * sell;
-            let profit = gross - capital;
-            document.getElementById('result_tb').innerHTML = `ROI: <strong>$${profit.toFixed(2)}</strong>`;
-        }
-        function convertCurrency() {
-            let amount = parseFloat(document.getElementById('base_amount').value) || 0;
-            let target = document.getElementById('target_currency').value;
-            let rates = {'EUR': 0.918, 'CNY': 7.21, 'XAU': 0.00042114, 'BTC': 0.00001380};
-            let rate = rates[target] || 0;
-            let finalAmount = amount * rate;
-            let decimals = (target === 'BTC' || target === 'XAU') ? 8 : 2;
-            document.getElementById('rate_val').innerHTML = `${finalAmount.toFixed(decimals)} ${target}`;
-        }
-    </script>
-    
-    <script>
-        let slideIndex = 0;
-        let timer;
-        const slides = document.querySelectorAll('.slide');
-        const dotsContainer = document.getElementById('dots');
-
-        slides.forEach((_, i) => {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => currentSlide(i));
-            dotsContainer.appendChild(dot);
-        });
-
-        const dots = document.querySelectorAll('.dot');
-
-        function showSlides() {
-            slides.forEach(s => s.classList.remove('active'));
-            dots.forEach(d => d.classList.remove('active'));
-            slideIndex++;
-            if (slideIndex > slides.length) slideIndex = 1;
-            slides[slideIndex-1].classList.add('active');
-            dots[slideIndex-1].classList.add('active');
-            timer = setTimeout(showSlides, 7000); // 7 segs
-        }
-
-        function moveSlide(n) {
-            clearTimeout(timer);
-            slideIndex += n - 1;
-            if (slideIndex < 0) slideIndex = slides.length - 1;
-            showSlides();
-        }
-
-        function currentSlide(n) {
-            clearTimeout(timer);
-            slideIndex = n;
-            showSlides();
-        }
-
-        const slider = document.getElementById('main-slider');
-        slider.onmouseenter = () => clearTimeout(timer);
-        slider.onmouseleave = () => timer = setTimeout(showSlides, 7000);
-
-        showSlides();
-    </script>
+    <script src="js/script.js"></script>
     
         <!-- Default Statcounter code for globalcapitalinsights
 https://gilberu.github.io/globalcapitalinsights/index.html -->
