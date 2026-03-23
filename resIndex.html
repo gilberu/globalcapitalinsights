@@ -4,223 +4,177 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Capital Insights | Intelligence Portal</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* ESTILOS DEL MENÚ NAVEGACIÓN (Ubicación Final) */
+        .nav-bar { background: var(--bg-card); border-bottom: 1px solid var(--border-dim); padding: 10px 0; }
+        .nav-container { max-width: 1200px; margin: auto; display: flex; justify-content: center; gap: 30px; }
+        .nav-link { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; transition: 0.3s; }
+        .nav-link:hover { color: var(--accent-gold); }
+
+        /* ESTILOS DEL SLIDER - INTEGRADO (Opción B) */
+        .slider-container { position: relative; width: 100%; height: 350px; overflow: hidden; border-radius: 8px; border: 1px solid var(--border-dim); background: #000; margin-bottom: 30px; }
+        .slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; display: flex; align-items: flex-end; }
+        .slide.active { opacity: 1; }
+        .slide-bg { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; }
+        .slide-content { position: relative; padding: 30px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); width: 100%; }
+        .slide-tag { color: var(--accent-gold); font-size: 0.7rem; text-transform: uppercase; font-weight: bold; }
+        .slide-title { font-size: 1.8rem; margin: 10px 0; color: #fff; }
+        
+        /* Controles */
+        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: var(--accent-gold); border: 1px solid var(--accent-gold); padding: 12px; cursor: pointer; z-index: 10; border-radius: 50%; transition: 0.3s; }
+        .slider-btn:hover { background: var(--accent-gold); color: #000; }
+        .prev { left: 15px; }
+        .next { right: 15px; }
+        .dots-container { position: absolute; bottom: 10px; width: 100%; display: flex; justify-content: center; gap: 8px; }
+        .dot { width: 8px; height: 8px; background: rgba(255,255,255,0.3); border-radius: 50%; cursor: pointer; }
+        .dot.active { background: var(--accent-gold); }
+    </style>
 </head>
-    
 <body>
-    <header style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 25px; border-bottom: 2px solid #d4af37; padding: 30px 20px;">
-        <img src="logo_cgi.png" alt="CGI Logo" style="height: 55px; width: auto;">
+    <header style="display: flex; align-items: center; justify-content: center; gap: 15px; border-bottom: 2px solid #d4af37; padding: 30px 20px;">
+        <img src="logo_cgi.png" alt="CGI Logo" style="height: 55px;">
         <h1 style="color:#c9d1d9; font-size: 1.8rem; margin: 0; text-transform: uppercase; letter-spacing: 2px;">GLOBAL CAPITAL INSIGHTS</h1>
     </header>
 
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="#" class="nav-link">Market Intelligence</a>
+            <a href="#" class="nav-link">Geopolitical Risk</a>
+            <a href="#" class="nav-link">Digital Assets</a>
+            <a href="#" class="nav-link">Regulatory & Law</a>
+            <a href="#" class="nav-link">Future Tech</a>
+            <a href="finance/top-5-crypto-law-firms-210326.html" class="nav-link">Elite Rankings</a>
+        </div>
+    </nav>
+
     <div class="container">
         <div class="dashboard">
-            <div class="card"><h3>DXY (Dollar Index)</h3><p>107.18 <span style="color:var(--accent-green);">▲</span></p></div>
+            <div class="card"><h3>DXY</h3><p>107.18 <span style="color:var(--accent-green);">▲</span></p></div>
             <div class="card"><h3>S&P 500</h3><p>5,142.20 <span style="color:var(--accent-red);">▼</span></p></div>
             <div class="card"><h3>BTC / USD</h3><p>$72,430 <span style="color:var(--accent-green);">▲</span></p></div>
-            <div class="card"><h3>Gold (Spot)</h3><p>$2,374.50 <span style="color:var(--accent-green);">▲</span></p></div>
+            <div class="card"><h3>Gold</h3><p>$2,374.50 <span style="color:var(--accent-green);">▲</span></p></div>
         </div>
 
         <div class="opening-analysis">
             "March 21, 2026. Market Update: Resilience in Digital Assets Amid Sustained Geopolitical Risk."
-            The DXY remains stable at 107.18 following the week's close, acting as a defensive anchor while the Hormuz naval blockade continues to influence energy premiums. Bitcoin (BTC) demonstrates significant strength, consolidating above the $72,400 mark as institutional liquidity shifts toward decentralized hedges. Market participants are now monitoring the impact of increased maritime insurance costs on the Q2 global inflation outlook.
-        </div>
-
-        <div class="intel-toolbar" style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-            <div class="toolbar-widget" style="border-top-color: #ff9900;">
-                <div class="toolbar-header" style="border-bottom-color: #ff9900; margin-bottom: 15px;">
-                    <h4 style="margin:0; font-size: 0.8rem; color: #ff9900; text-transform: uppercase;">Sentiment</h4>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 1.1rem; font-weight: bold; color: #ff4c4c; margin-bottom: 10px;">EXTREME FEAR</div>
-                    <div style="width: 100%; height: 8px; background: #30363d; border-radius: 10px; margin: 10px 0; overflow: hidden;">
-                        <div style="width: 18%; height: 100%; background: linear-gradient(90deg, #ff4c4c, #ff9900); border-radius: 10px;"></div>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; font-size: 0.6rem; color: #8b949e; margin-bottom: 10px;"><span>0 (FEAR)</span><span>100 (GREED)</span></div>
-                </div>
-            </div>
-
-            <div class="toolbar-widget" style="border-top-color: #00ff00;">
-                <div class="toolbar-header" style="border-bottom-color: #00ff00; margin-bottom: 15px;"><h4 style="margin:0; font-size: 0.8rem; color: #00ff00; text-transform: uppercase;">Arbitrage (USDT/VES)</h4></div>
-                <div style="display: flex; flex-direction: column; gap: 8px;">
-                    <input type="number" id="capital_tb" value="100" style="background: #0b0e14; border: 1px solid #30363d; color: #d4af37; padding: 6px; border-radius: 4px; width: 100%;">
-                    <div style="display: flex; gap: 5px;">
-                        <input type="number" id="buy_tb" value="36.50" step="0.01" style="flex:1; background: #0b0e14; border: 1px solid #30363d; color: #fff; padding: 6px; border-radius: 4px;">
-                        <input type="number" id="sell_tb" value="37.20" step="0.01" style="flex:1; background: #0b0e14; border: 1px solid #30363d; color: #fff; padding: 6px; border-radius: 4px;">
-                    </div>
-                    <button onclick="calculateProfit_tb()" style="background: #00ff00; color: #0b0e14; border: none; padding: 8px; border-radius: 4px; font-weight: bold; cursor: pointer;">Calculate Profit</button>
-                    <div id="result_tb" style="margin-top: 10px; padding: 8px; background: #1c2128; border: 1px dashed #30363d; text-align: center; color: #00ff00;">ROI: <strong>$1.91</strong></div>
-                </div>
-            </div>
-
-            <div class="toolbar-widget" style="border-top-color: #58a6ff;">
-                <div class="toolbar-header" style="border-bottom-color: #58a6ff; margin-bottom: 15px;"><h4 style="margin:0; font-size: 0.8rem; color: #58a6ff; text-transform: uppercase;">Converter</h4></div>
-                <div style="display: flex; flex-direction: column; gap: 8px;">
-                    <input type="number" id="base_amount" value="1000" style="background: #0b0e14; border: 1px solid #30363d; color: #d4af37; padding: 6px; border-radius: 4px;">
-                    <select id="target_currency" style="background: #0b0e14; border: 1px solid #30363d; color: #c9d1d9; padding: 6px; border-radius: 4px;">
-                        <option value="EUR">EUR</option><option value="CNY">CNY</option><option value="XAU">Gold (oz)</option><option value="BTC">BTC</option>
-                    </select>
-                    <button onclick="convertCurrency()" style="background: #58a6ff; color: #0b0e14; border: none; padding: 8px; border-radius: 4px; font-weight: bold; cursor: pointer;">Convert Rate</button>
-                    <div id="convert_result" style="margin-top: 10px; padding: 8px; background: #1c2128; border: 1px dashed #30363d; text-align: center;">Rate: <strong id="rate_val">-</strong></div>
-                </div>
-            </div>
+            ... [CONTENIDO COMPLETO] ...
         </div>
 
         <div class="main-layout">
             <div class="content-area">
-                <h2 style="color:#d4af37; border-bottom: 1px solid #30363d; padding-bottom: 10px;">Latest Intelligence</h2>
+                
+                <div class="slider-container" id="main-slider">
+                    <button class="slider-btn prev" onclick="moveSlide(-1)">❮</button>
+                    <button class="slider-btn next" onclick="moveSlide(1)">❯</button>
+                    
+                    <div class="slide active">
+                        <img src="img/mica-law-bg.jpg" class="slide-bg">
+                        <div class="slide-content">
+                            <span class="slide-tag">Regulatory & Law</span>
+                            <h2 class="slide-title">Navigating MiCA II: The New Gold Standard for Crypto Compliance</h2>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="img/sodium-battery.jpg" class="slide-bg">
+                        <div class="slide-content">
+                            <span class="slide-tag">Future Tech</span>
+                            <h2 class="slide-title">Beyond Lithium: The Sodium-Ion Revolution</h2>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="img/mbridge-system.jpg" class="slide-bg">
+                        <div class="slide-content">
+                            <span class="slide-tag">Digital Assets</span>
+                            <h2 class="slide-title">The mBridge Era: Neutralizing Financial Sanctions</h2>
+                        </div>
+                    </div>
+                    <div class="dots-container" id="dots"></div>
+                </div>
+
+                <h2 style="color:#d4af37; border-bottom: 1px solid #30363d; padding-bottom: 10px;">Latest Analysis</h2>
                 <div class="articles-grid">
                     <a href="finance/top-5-crypto-law-firms-210326.html" class="article-card card-legal">
-                        <div class="card-bg" style="background-image: url('img/crypto-law-justice.png'); opacity: 0.3;"></div>
+                        <div class="card-bg" style="background-image: url('img/crypto-law-justice.png');"></div>
                         <div class="card-overlay"></div>
                         <div class="card-content">
                             <span class="card-category">Elite Rankings | March 21, 2026</span>
-                            <h3 class="card-title">Top 5 Global Law Firms for Crypto Compliance</h3>
-                            <p class="card-excerpt">Analysis of the legal titans securing the future of digital assets in 2026...</p>
+                            <h3 class="card-title">Top 5 Crypto Law Firms</h3>
                         </div>
                     </a>
-                    <a href="tech/top-5-blockchain-auditors-260320.html" class="article-card card-tech">
-                        <div class="card-bg" style="background-image: url('img/blockchain-security-shield.png'); opacity: 0.3;"></div>
-                        <div class="card-overlay"></div>
-                        <div class="card-content">
-                            <span class="card-category">Elite Rankings | March 20, 2026</span>
-                            <h3 class="card-title">Guardians of the Chain: Top 5 Blockchain Auditors</h3>
-                            <p class="card-excerpt">Análisis de las firmas de seguridad y auditoría de protocolos más confiables en 2026...</p>
-                        </div>
-                    </a>
-                    <a href="finance/brics-bridge-dollar-hegemony-260320.html" class="article-card">
-                        <div class="card-bg" style="background-image: url('img/gold-vs-bitcoin-fusion.png'); opacity: 0.4;"></div>
-                        <div class="card-overlay"></div>
-                        <div class="card-content">
-                            <span class="card-category">Finance | March 20, 2026</span>
-                            <h3 class="card-title">The Dollar Hegemony vs. The BRICS Bridge</h3>
-                            <p class="card-excerpt">Analysis of the new sovereign payment rails and DXY 107.18 impact...</p>
-                        </div>
-                    </a>
-                    <a href="finance/stablecoin-arbitrage-bybit-p2p-260320.html" class="article-card">
-                        <div class="card-bg" style="background-image: url('img/bybit-p2p-interface.png'); opacity: 0.4;"></div>
-                        <div class="card-overlay"></div>
-                        <div class="card-content">
-                            <span class="card-category">Trading | March 20, 2026</span>
-                            <h3 class="card-title">Stablecoin Arbitrage: Mastering Bybit P2P</h3>
-                            <p class="card-excerpt">Exploiting market inefficiencies and price spreads in the 2026 crypto market...</p>
-                        </div>
-                    </a>
-                    <a href="tech/quantum-resistant-banking-260320.html" class="article-card">
-                        <div class="card-bg" style="background-image: url('img/ibm-quantum-processor.jpg'); opacity: 0.4;"></div>
-                        <div class="card-overlay"></div>
-                        <div class="card-content">
-                            <span class="card-category">Technology | March 20, 2026</span>
-                            <h3 class="card-title">Quantum-Resistant Banking</h3>
-                            <p class="card-excerpt">Securing global financial infrastructure against the 2026 quantum threat...</p>
-                        </div>
-                    </a>
-                    <a href="finance/gold-vs-bitcoin-race-2400-260320.html" class="article-card">
-                        <div class="card-bg" style="background-image: url('img/gold-vs-bitcoin-fusion.png'); opacity: 0.4;"></div>
-                        <div class="card-overlay"></div>
-                        <div class="card-content">
-                            <span class="card-category">Markets | March 20, 2026</span>
-                            <h3 class="card-title">Gold vs. Digital Gold: The $2,400 Race</h3>
-                            <p class="card-excerpt">Why XAU and BTC are competing for the ultimate safe-haven title...</p>
-                        </div>
-                    </a>
-                </div>
+                    </div>
 
                 <h2 style="color:#d4af37; border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-top: 60px;">Historical Reports</h2>
                 <div class="archive-list">
-                    <a href="training/sovereign-funds-diversification-260317.html" class="archive-item"><span>The "Golden Age" of Sovereign Funds</span><span>March 17, 2026</span></a>
-                    <a href="tech/industrial-cyber-resilience-260316.html" class="archive-item"><span>Industrial Cyber-Resilience: Protecting Physical Assets</span><span>March 16, 2026</span></a>
-                    <a href="training/supply-chain-antifragility-260316.html" class="archive-item"><span>Supply Chain Antifragility: Maritime Routes</span><span>March 16, 2026</span></a>
-                    <a href="finance/dxy-surge-analysis-260316.html" class="archive-item"><span>The DXY Surge: Double-Edged Sword</span><span>March 16, 2026</span></a>
-                    <a href="finance/gold-fiat-barrier-260316.html" class="archive-item"><span>Gold vs Fiat: $2,200 Barrier Analysis</span><span>March 16, 2026</span></a>
-                    <a href="finance/bitcoin-strategic-reserve-260316.html" class="archive-item"><span>BTC: The New Corporate Reserve Standard</span><span>March 16, 2026</span></a>
-                    <a href="finance/black-swan-2026-260315.html" class="archive-item"><span>US–Israel–Iran Conflict Analysis</span><span>March 15, 2026</span></a>
-                    <a href="finance/deuda-venezuela-2026-260315.html" class="archive-item"><span>Venezuelan Debt Restructuring Scenario</span><span>March 15, 2026</span></a>
-                    <a href="tech/digital-twin-industry-260315.html" class="archive-item"><span>Digital Twin: Operational Efficiency Strategy</span><span>March 15, 2026</span></a>
-                    <a href="legal/hydrocarbons-law-venezuela-260315.html" class="archive-item"><span>Venezuelan Hydrocarbons Law Reform</span><span>March 15, 2026</span></a>
-                    <a href="training/executive-digital-literacy-260315.html" class="archive-item"><span>Executive Digital Literacy: Algorithm Logic</span><span>March 15, 2026</span></a>
-                </div>
+                    </div>
             </div>
 
             <aside class="live-feed-container">
                 <div class="aside-widget" style="border-top: 3px solid #ff4c4c;">
-                    <div style="display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-bottom: 15px;">
-                        <span class="live-dot"></span><h3 style="margin:0; font-size: 0.8rem; color: #ff4c4c; text-transform: uppercase;">Crisis Tracker: Iran-US</h3>
-                    </div>
                     <div class="tracker-scroll">
-                        <div style="border-left: 2px solid #30363d; margin-left: 10px; padding-left: 15px;">
-                            <div style="margin-bottom: 20px; position: relative;">
-                                <div style="position: absolute; left: -21px; top: 0; width: 10px; height: 10px; background: #ff4c4c; border-radius: 50%; box-shadow: 0 0 8px #ff4c4c;"></div>
-                                <span style="font-size: 0.65rem; color: #8b949e;">21 MAR | 09:45 UTC</span>
-                                <p style="font-size: 0.8rem; line-height: 1.3;"><strong>Cyber-Interdiction:</strong> US Treasury reports localized DDoS attacks on clearinghouses.</p>
-                            </div>
-                            <div style="margin-bottom: 20px; position: relative;">
-                                <div style="position: absolute; left: -21px; top: 0; width: 10px; height: 10px; background: #ff4c4c; border-radius: 50%;"></div>
-                                <span style="font-size: 0.65rem; color: #8b949e;">20 MAR | 15:30 UTC</span>
-                                <p style="font-size: 0.8rem; line-height: 1.3;"><strong>Hormuz Lockdown:</strong> IRGC confirms full naval blockade. Oil tankers redirected.</p>
-                            </div>
-                            <div style="margin-bottom: 20px; position: relative;">
-                                <div style="position: absolute; left: -21px; top: 0; width: 10px; height: 10px; background: #d4af37; border-radius: 50%;"></div>
-                                <span style="font-size: 0.65rem; color: #8b949e;">18 MAR | 10:00 UTC</span>
-                                <p style="font-size: 0.8rem; line-height: 1.3;"><strong>Strategic Reprisal:</strong> Iran activates coastal missile batteries in response to carrier movement.</p>
-                            </div>
-                            <div style="margin-bottom: 20px; position: relative;">
-                                <div style="position: absolute; left: -21px; top: 0; width: 10px; height: 10px; background: #ff4c4c; border-radius: 50%;"></div>
-                                <span style="font-size: 0.65rem; color: #8b949e;">15 MAR | 04:20 UTC</span>
-                                <p style="font-size: 0.8rem; line-height: 1.3;"><strong>DAY 1 - INITIAL STRIKE:</strong> US CENTCOM confirms precision strikes on drone manufacturing facilities in Western Iran.</p>
-                            </div>
                         </div>
-                    </div>
                 </div>
 
                 <div class="aside-widget">
-                    <div class="feed-header"><span class="live-dot" style="background-color: #d4af37;"></span><h3 style="margin:0; font-size: 0.9rem; color: #d4af37;">Live Intelligence</h3></div>
-                    <div class="news-ticker-item"><span class="tag tag-critical">CRITICAL</span><p style="font-size: 0.8rem;"><strong>BTC Support:</strong> Levels hold at $72,200.</p></div>
-                    <div class="news-ticker-item"><span class="tag tag-tech">MARKETS</span><p style="font-size: 0.8rem;"><strong>Oil Premium:</strong> Brent Crude maintains $87.40 range.</p></div>
-                </div>
+                    </div>
 
                 <div class="aside-widget">
-                    <div class="feed-header"><h3 style="margin:0; font-size: 0.8rem; color: #8b949e;">Global Press Picks</h3></div>
-                    <div class="press-item" style="border-left: 2px solid #d4af37; padding-left: 10px; margin-top: 15px; margin-bottom: 15px;">
-                        <span style="font-size: 0.65rem; color: #d4af37; font-weight: bold;">Financial Times</span>
-                        <h4 style="margin: 5px 0; font-size: 0.85rem;">"The New Silk Road: Digital Assets bypass SWIFT"</h4>
                     </div>
-                    <div class="press-item" style="border-left: 2px solid #58a6ff; padding-left: 10px;">
-                        <span style="font-size: 0.65rem; color: #58a6ff; font-weight: bold;">Reuters</span>
-                        <h4 style="margin: 5px 0; font-size: 0.85rem;">"Japan's Central Bank considers Yen-pegged stablecoin"</h4>
-                    </div>
-                </div>
             </aside>
         </div>
     </div>
 
     <footer>
-        <div class="container" style="text-align:center; padding:40px 20px; color:#8b949e; font-size:0.8rem;">
+        <div class="container" style="text-align:center; padding:40px 20px; color:#8b949e; font-size:0.8rem; border-top: 1px solid #30363d; margin-top: 60px;">
             <p style="color:#d4af37; font-weight:bold; font-size:1.1rem;">Global Capital Insights</p>
             <p>© 2026 Global Capital Insights. Strategic Intelligence Division.</p>
-            <p style="font-style:italic;">DISCLAIMER: For strategic intelligence and educational purposes only.</p>
         </div>
     </footer>
 
     <script>
-        function calculateProfit_tb() {
-            let capital = parseFloat(document.getElementById('capital_tb').value) || 0;
-            let buy = parseFloat(document.getElementById('buy_tb').value) || 1;
-            let sell = parseFloat(document.getElementById('sell_tb').value) || 1;
-            let gross = (capital / buy) * sell;
-            let profit = gross - capital;
-            document.getElementById('result_tb').innerHTML = `ROI: <strong>$${profit.toFixed(2)}</strong>`;
+        let slideIndex = 0;
+        let timer;
+        const slides = document.querySelectorAll('.slide');
+        const dotsContainer = document.getElementById('dots');
+
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => currentSlide(i));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlides() {
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            slideIndex++;
+            if (slideIndex > slides.length) slideIndex = 1;
+            slides[slideIndex-1].classList.add('active');
+            dots[slideIndex-1].classList.add('active');
+            timer = setTimeout(showSlides, 7000); // 7 segs
         }
-        function convertCurrency() {
-            let amount = parseFloat(document.getElementById('base_amount').value) || 0;
-            let target = document.getElementById('target_currency').value;
-            let rates = {'EUR': 0.918, 'CNY': 7.21, 'XAU': 0.00042114, 'BTC': 0.00001380};
-            let rate = rates[target] || 0;
-            let finalAmount = amount * rate;
-            let decimals = (target === 'BTC' || target === 'XAU') ? 8 : 2;
-            document.getElementById('rate_val').innerHTML = `${finalAmount.toFixed(decimals)} ${target}`;
+
+        function moveSlide(n) {
+            clearTimeout(timer);
+            slideIndex += n - 1;
+            if (slideIndex < 0) slideIndex = slides.length - 1;
+            showSlides();
         }
+
+        function currentSlide(n) {
+            clearTimeout(timer);
+            slideIndex = n;
+            showSlides();
+        }
+
+        const slider = document.getElementById('main-slider');
+        slider.onmouseenter = () => clearTimeout(timer);
+        slider.onmouseleave = () => timer = setTimeout(showSlides, 7000);
+
+        showSlides();
     </script>
 </body>
 </html>
