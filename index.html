@@ -73,9 +73,15 @@
                 <div style="display: flex; flex-direction: column; gap: 8px;">
                     <input type="number" id="capital_tb" value="100" style="background: #0b0e14; border: 1px solid #30363d; color: #d4af37; padding: 6px; border-radius: 4px; width: 100%;">
                     <div style="display: flex; gap: 5px;">
-                        <input type="number" id="buy_tb" value="36.50" step="0.01" style="flex:1; background: #0b0e14; border: 1px solid #30363d; color: #fff; padding: 6px; border-radius: 4px;">
-                        <input type="number" id="sell_tb" value="37.20" step="0.01" style="flex:1; background: #0b0e14; border: 1px solid #30363d; color: #fff; padding: 6px; border-radius: 4px;">
-                    </div>
+    <input type="number" id="buy_tb" value="36.50" step="0.01" 
+           style="flex:1; background: #0b0e14; border: 1px solid #30363d; color: #fff; padding: 6px; border-radius: 4px; box-sizing: border-box; min-width: 0;">
+    
+    <input type="number" id="sell_tb" value="37.20" step="0.01" 
+           style="flex:1; background: #0b0e14; border: 1px solid #30363d; color: #fff; padding: 6px; border-radius: 4px; box-sizing: border-box; min-width: 0;">
+</div>
+
+
+
                     <button onclick="calculateProfit_tb()" style="background: #00ff00; color: #0b0e14; border: none; padding: 8px; border-radius: 4px; font-weight: bold; cursor: pointer;">Calculate Profit</button>
                     <div id="result_tb" style="margin-top: 10px; padding: 8px; background: #1c2128; border: 1px dashed #30363d; text-align: center; color: #00ff00;">ROI: <strong>$1.91</strong></div>
                 </div>
