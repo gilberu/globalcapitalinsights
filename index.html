@@ -8,31 +8,6 @@
     <meta name="keywords" content="Finance, Business, Capital, Strategy, 2026 Markets, Intelligence">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* ESTILOS DEL MENÚ NAVEGACIÓN (Ubicación Final) */
-        .nav-bar { background: var(--bg-card); border-bottom: 1px solid var(--border-dim); padding: 10px 0; }
-        .nav-container { max-width: 1200px; margin: auto; display: flex; justify-content: center; gap: 30px; }
-        .nav-link { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; transition: 0.3s; }
-        .nav-link:hover { color: var(--accent-gold); }
-
-        /* ESTILOS DEL SLIDER - INTEGRADO (Opción B) */
-        .slider-container { position: relative; width: 100%; height: 350px; overflow: hidden; border-radius: 8px; border: 1px solid var(--border-dim); background: #000; margin-bottom: 30px; }
-        .slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; display: flex; align-items: flex-end; }
-        .slide.active { opacity: 1; }
-        .slide-bg { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; }
-        .slide-content { position: relative; padding: 30px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); width: 100%; }
-        .slide-tag { color: var(--accent-gold); font-size: 0.7rem; text-transform: uppercase; font-weight: bold; }
-        .slide-title { font-size: 1.8rem; margin: 10px 0; color: #fff; }
-        
-        /* Controles */
-        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: var(--accent-gold); border: 1px solid var(--accent-gold); padding: 12px; cursor: pointer; z-index: 10; border-radius: 50%; transition: 0.3s; }
-        .slider-btn:hover { background: var(--accent-gold); color: #000; }
-        .prev { left: 15px; }
-        .next { right: 15px; }
-        .dots-container { position: absolute; bottom: 10px; width: 100%; display: flex; justify-content: center; gap: 8px; }
-        .dot { width: 8px; height: 8px; background: rgba(255,255,255,0.3); border-radius: 50%; cursor: pointer; }
-        .dot.active { background: var(--accent-gold); }
-    </style>
 </head>
     
 <body>
@@ -43,11 +18,11 @@
     
     <nav class="nav-bar">
         <div class="nav-container">
-            <a href="#" class="nav-link">Market Intelligence</a>
-            <a href="#" class="nav-link">Geopolitical Risk</a>
-            <a href="#" class="nav-link">Digital Assets</a>
-            <a href="#" class="nav-link">Regulatory & Law</a>
+            <a href="#" class="nav-link">Financial</a>
             <a href="#" class="nav-link">Future Tech</a>
+            <a href="#" class="nav-link">executive training</a>
+            <a href="#" class="nav-link">Regulatory & Law</a>
+            <a href="#" class="nav-link">News</a>
             <a href="finance/top-5-crypto-law-firms-210326.html" class="nav-link">Elite Rankings</a>
         </div>
     </nav>
@@ -90,9 +65,6 @@
     <input type="number" id="sell_tb" value="37.20" step="0.01" 
            style="flex:1; background: #0b0e14; border: 1px solid #30363d; color: #fff; padding: 6px; border-radius: 4px; box-sizing: border-box; min-width: 0;">
 </div>
-
-
-
                     <button onclick="calculateProfit_tb()" style="background: #00ff00; color: #0b0e14; border: none; padding: 8px; border-radius: 4px; font-weight: bold; cursor: pointer;">Calculate Profit</button>
                     <div id="result_tb" style="margin-top: 10px; padding: 8px; background: #1c2128; border: 1px dashed #30363d; text-align: center; color: #00ff00;">ROI: <strong>$1.91</strong></div>
                 </div>
