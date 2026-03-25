@@ -22,11 +22,11 @@ function convertCurrency() {
     
     // Tasas fijas (Simulación Marzo 2026)
     const rates = {
-        'EUR': 0.918, 
-        'CNY': 7.21, 
-        'XAU': 0.00042114, 
-        'BTC': 0.00001380
-    };
+    'EUR': 0.8633,      // 1 USD = 0.8633 EUR
+    'CNY': 7.21,        // 1 USD = 7.21 CNY
+    'XAU': 0.00021816,  // 1 / 4,583.86 (Onzas por cada 1 USD)
+    'BTC': 0.00001423   // 1 / 70,283 (Satoshi ratio por cada 1 USD)
+};
     
     const rate = rates[target] || 0;
     const finalAmount = amount * rate;
@@ -34,6 +34,11 @@ function convertCurrency() {
     
     document.getElementById('rate_val').innerHTML = `${finalAmount.toFixed(decimals)} ${target}`;
 }
+
+
+
+
+
 
 // --- LÓGICA DEL CARRUSEL (SLIDER) ---
 let slideIndex = 0;
