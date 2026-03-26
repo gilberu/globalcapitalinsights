@@ -54,6 +54,64 @@ h1 { color: var(--accent-gold); margin: 0; font-size: 1.8rem; text-transform: up
     padding-bottom: 10px;
 }
 
+
+/* --- Global Navigation --- */
+.main-header {
+    background: rgba(13, 17, 23, 0.95);
+    border-bottom: 1px solid #30363d;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo-text {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #8b949e;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.main-nav a:hover, 
+.main-nav a.active {
+    color: var(--accent-gold);
+}
+
+/* Indicador de página activa */
+.main-nav a.active {
+    border-bottom: 2px solid var(--accent-gold);
+    padding-bottom: 5px;
+}
+
+
 /* --- DASHBOARD DE PRECIOS --- */
 .dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
 .card { background-color: var(--bg-card-alt); padding: 15px; border-radius: 6px; border: 1px solid var(--border-dim); text-align: center; }
