@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Intelligence | GCI - Global Capital Insights</title>
+    <link rel="stylesheet" href="../css/styles.css"> 
+    <style>
+        .category-header {
+            padding: 60px 0 40px;
+            border-bottom: 1px solid #30363d;
+            margin-bottom: 40px;
+        }
+        .category-title {
+            color: var(--accent-gold);
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+        .category-description {
+            color: #8b949e;
+            max-width: 700px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+        /* Grid de Artículos del Clúster */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .article-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+        }
+        .article-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+        .article-thumb {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid #30363d;
+        }
+        .article-content {
+            padding: 20px;
+        }
+        .article-date {
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .article-card h3 {
+            color: #fff;
+            margin: 10px 0;
+            font-size: 1.25rem;
+            line-height: 1.4;
+        }
+        .article-card p {
+            color: #8b949e;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    </header>
+
+<main class="container">
+    <section class="category-header">
+        <h1 class="category-title">Finance & Macro</h1>
+        <p class="category-description">
+            Análisis profundo sobre el sistema mBridge, la desdolarización global y los movimientos estratégicos en los mercados de commodities y criptoactivos.
+        </p>
+    </section>
+
+    <div class="article-grid">
+        <a href="mbridge-system-analysis.html" class="article-card">
+            <img src="../img/mbridge-thumb.jpg" alt="mBridge System" class="article-thumb">
+            <div class="article-content">
+                <span class="article-date">March 23, 2026</span>
+                <h3>mBridge System: A Definitive Blow to the Petro-Dollar</h3>
+                <p>Explorando cómo las CBDC están reescribiendo las reglas del comercio global y las sanciones...</p>
+            </div>
+        </a>
+
+        <a href="dollar-hegemony-brics.html" class="article-card">
+            <img src="../img/brics-thumb.jpg" alt="BRICS Bridge" class="article-thumb">
+            <div class="article-content">
+                <span class="article-date">March 18, 2026</span>
+                <h3>The Dollar Hegemony vs. The BRICS Bridge</h3>
+                <p>Análisis de la resistencia del USD frente a la nueva arquitectura financiera de los mercados emergentes.</p>
+            </div>
+        </a>
+
+        <a href="gold-btc-race.html" class="article-card">
+            <img src="../img/gold-btc.jpg" alt="Gold vs BTC" class="article-thumb">
+            <div class="article-content">
+                <span class="article-date">March 15, 2026</span>
+                <h3>Gold vs Bitcoin: The New Corporate Reserve Standard</h3>
+                <p>¿Quién ganará la carrera por ser el refugio seguro en la era de la inflación digital?</p>
+            </div>
+        </a>
+
+        </div>
+</main>
+
+<footer>
+    </footer>
+
+</body>
+</html>
