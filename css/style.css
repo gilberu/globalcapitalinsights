@@ -55,6 +55,85 @@ h1 { color: var(--accent-gold); margin: 0; font-size: 1.8rem; text-transform: up
 }
 
 
+
+
+
+
+/* --- Cluster Navigation Bar --- */
+.cluster-nav {
+    background-color: #161b22; /* Un tono gris muy oscuro, distinto al fondo negro puro */
+    border-top: 1px solid #30363d;
+    border-bottom: 1px solid #30363d;
+    width: 100%;
+    position: sticky;
+    top: 0; /* Si quieres que se quede pegado al hacer scroll */
+    z-index: 999;
+}
+
+.nav-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center; /* Centra los items del menú */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    display: block;
+    padding: 15px 25px;
+    color: #8b949e;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-item:hover {
+    color: var(--accent-gold);
+    background-color: rgba(212, 175, 55, 0.05); /* Sutil brillo dorado al pasar el mouse */
+}
+
+/* Clase para resaltar en qué clúster estás */
+.nav-item.active {
+    color: var(--accent-gold);
+    border-bottom: 2px solid var(--accent-gold);
+}
+
+/* Ajuste para móviles: que se pueda hacer scroll horizontal si no caben */
+@media (max-width: 768px) {
+    .nav-links {
+        justify-content: flex-start;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* --- DASHBOARD DE PRECIOS --- */
 .dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
 .card { background-color: var(--bg-card-alt); padding: 15px; border-radius: 6px; border: 1px solid var(--border-dim); text-align: center; }
