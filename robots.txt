@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Bloqueo de carpetas de código y recursos internos
+Disallow: /js/
+Disallow: /css/
+
+# Bloqueo de archivos de documentación y configuración
+Disallow: /ads.txt
+Disallow: /README.md
+
+# Referencia al mapa del sitio
+Sitemap: https://gilberu.github.io/globalcapitalinsights/sitemap.xml
