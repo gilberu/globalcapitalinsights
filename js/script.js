@@ -22,11 +22,11 @@ function convertCurrency() {
     
     // Tasas fijas (Simulación Marzo 2026)
     const rates = {
-    'EUR': 0.92,          // El Euro se ha movido un poco (1 USD = 0.92 EUR aprox)
-    'CNY': 7.23,          // Ligero ajuste en el Yuan
-    'XAU': 0.00042276,    // Basado en el spot de $2,365.40 (1 / 2365.40)
-    'BTC': 0.00001505     // Basado en el precio de $66,450 (1 / 66450)
-};
+        'EUR': 0.92,          // El Euro se ha movido un poco (1 USD = 0.92 EUR aprox)
+        'CNY': 7.23,          // Ligero ajuste en el Yuan
+        'XAU': 0.00042276,    // Basado en el spot de $2,365.40 (1 / 2365.40)
+        'BTC': 0.00001505     // Basado en el precio de $66,450 (1 / 66450)
+    };
     
     const rate = rates[target] || 0;
     const finalAmount = amount * rate;
