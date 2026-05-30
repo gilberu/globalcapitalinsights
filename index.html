@@ -33,22 +33,22 @@
             <div class="dashboard">
                 <div class="card">
                     <h3>DXY (Dollar Index)</h3>
-                    <p>104.25 <span style="color:var(--accent-green);">▲</span></p>
+                    <p id="ticker-dxy">Loading...</p>
                 </div>
                 
                 <div class="card">
                     <h3>S&P 500</h3>
-                    <p>5,220.10 <span style="color:var(--accent-green);">▲</span></p>
+                    <p id="ticker-sp500">Loading...</p>
                 </div>
 
                 <div class="card">
                     <h3>BTC / USD</h3>
-                    <p>$66,450 <span style="color:var(--accent-red);">▼</span></p>
+                    <p id="ticker-btc">Loading...</p>
                 </div>
 
                 <div class="card">
                     <h3>Gold (Spot)</h3>
-                    <p>$2,365.40 <span style="color:var(--accent-green);">▲</span></p>
+                    <p id="ticker-gold">Loading...</p>
                 </div>
             </div>
 
@@ -130,8 +130,8 @@
 
                         <button onclick="convertCurrency()" style="background: #58a6ff; color: #0b0e14; border: none; padding: 8px; border-radius: 4px; font-weight: bold; cursor: pointer;">Convert Rate</button>
                         
-                        <div id="convert_result" style="margin-top: 10px; padding: 8px; background: #1c2128; border: 1px dashed #30363d; text-align: center;">
-                            Rate: <strong id="rate_val">-</strong>
+                        <div id="convert_result" style="margin-top: 10px; padding: 8px; background: #1c2128; border: 1px dashed #30363d; text-align: center; color: #58a6ff;">
+                            Result: <strong id="rate_val">-</strong>
                         </div>
                     </div>
                 </div>
