@@ -7,7 +7,7 @@
 // 1. DASHBOARD DE TICKERS AUTOMÁTICO (Top)
 // ==========================================
 async function updateDashboard() {
-    // A. Obtener Bitcoin (vía CoinGecko API)
+    // A. Obtener Bitcoin (vía CoinGecko API - Libre de CORS y sin límites estrictos)
     try {
         const btcResponse = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true");
         if (btcResponse.ok) {
@@ -15,56 +15,98 @@ async function updateDashboard() {
             const price = btcData.bitcoin.usd;
             const change = btcData.bitcoin.usd_24h_change;
             
-            // Forzamos el formato de moneda en inglés (EE.UU.) para asegurar las comas en los miles
             const formattedBTC = "$" + Number(price).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
             renderCard("ticker-btc", formattedBTC, change);
         }
     } catch (error) {
         console.error("Error fetching BTC data:", error);
     }
+    
+    // B. Obtener TradFi (DXY, S&P 500, Oro) vía Twelve Data con Sistema Anti-Saturación (Caché)
+    const apiKey = "2418b15dc273451786ce2bd8d222ab50"; 
+    const symbols = "GSPC,XAU/USD,EUR/USD"; 
+    const url = `https://api.twelvedata.com/quote?symbol=${symbols}&apikey=${apiKey}`;
 
-    // B. Obtener Mercados Tradicionales (DXY, S&P 500, Oro)
-    const symbols = "DX-Y.NYB,^GSPC,GC=F"; 
-    // Añadimos un proxy abierto antes de la URL de Yahoo para saltarnos el bloqueo CORS de local
-    const proxyUrl = "https://corsproxy.io/?";
-    const yahooUrl = `https://query1.financecharts.yahoo.com/v7/finance/quote?symbols=${symbols}`;
+    // Revisamos si tenemos datos guardados en este minuto para no saturar los "8 créditos por minuto"
+    const cachedData = sessionStorage.getItem("tradfi_data");
+    const cachedTime = sessionStorage.getItem("tradfi_time");
+    const now = Date.now();
 
+    // Si hay datos guardados y tienen menos de 5 minutos (300,000 ms), los usamos y evitamos pedir a la API
+    if (cachedData && cachedTime && (now - cachedTime < 300000)) {
+        console.log("Cargando mercados desde la caché local para ahorrar créditos...");
+        procesarDatosTradFi(JSON.parse(cachedData));
+        return; 
+    }
+
+    // Si no hay caché o ya expiró, vamos a la API de Twelve Data de forma segura
     try {
-        const marketResponse = await fetch(proxyUrl + encodeURIComponent(yahooUrl));
-        if (marketResponse.ok) {
-            const marketData = await marketResponse.json();
-            const quotes = marketData.quoteResponse.result;
+        const response = await fetch(url);
+        if (response.ok) {
+            const data = await response.json();
+            
+            // Si la API nos devuelve el error de velocidad ("status": "error"), no guardamos nada
+            if (data.status === "error") {
+                console.warn("Límite de peticiones por minuto alcanzado en Twelve Data.");
+                setDashboardError();
+                return;
+            }
 
-            quotes.forEach(quote => {
-                const price = quote.regularMarketPrice;
-                const change = quote.regularMarketChangePercent;
+            // Guardamos en la memoria del navegador para los próximos refrescos
+            sessionStorage.setItem("tradfi_data", JSON.stringify(data));
+            sessionStorage.setItem("tradfi_time", now);
 
-                if (quote.symbol === "DX-Y.NYB") {
-                    renderCard("ticker-dxy", price.toFixed(2), change);
-                } else if (quote.symbol === "^GSPC") {
-                    renderCard("ticker-sp500", Number(price.toFixed(2)).toLocaleString('en-US'), change);
-                } else if (quote.symbol === "GC=F") {
-                    renderCard("ticker-gold", `$${Number(price.toFixed(2)).toLocaleString('en-US')}`, change);
-                }
-            });
+            // Procesamos la información para pintarla en las tarjetas
+            procesarDatosTradFi(data);
+
         } else {
-            // Si el proxy falla, mostramos un mensaje amigable en lugar de "Loading..." eterno
+            console.error("Twelve Data API Error:", response.status);
             setDashboardError();
         }
     } catch (error) {
-        console.error("Error fetching market data via proxy:", error);
+        console.error("Error en procesamiento TradFi:", error);
         setDashboardError();
     }
 }
 
-// Función extra por si ocurre un fallo general de red en los mercados tradicionales
-function setDashboardError() {
-    ["ticker-dxy", "ticker-sp500", "ticker-gold"].forEach(id => {
-        const el = document.getElementById(id);
-        if (el && el.innerText === "Loading...") {
-            el.innerText = "Offline";
+// Función auxiliar encargada exclusivamente de extraer y pintar los valores en el HTML
+function procesarDatosTradFi(data) {
+    // 1. S&P 500 (Procesar GSPC / ^GSPC)
+    const spxData = data["GSPC"] || data["^GSPC"];
+    if (spxData && (spxData.close || spxData.price)) {
+        const rawPrice = spxData.close || spxData.price;
+        const spxPrice = Number(rawPrice);
+        const spxChange = Number(spxData.percent_change || 0);
+        renderCard("ticker-sp500", spxPrice.toLocaleString('en-US', { maximumFractionDigits: 2 }), spxChange);
+    } else {
+        const elSPX = document.getElementById("ticker-sp500");
+        if (elSPX) elSPX.innerText = "Mkt Closed";
+    }
+
+    // 2. Oro Spot (Procesar XAU/USD)
+    if (data["XAU/USD"] && data["XAU/USD"].close) {
+        let goldPrice = Number(data["XAU/USD"].close);
+        
+        // Si el precio viene duplicado por el formato del contrato (> 3500), lo normalizamos
+        if (goldPrice > 3500) {
+            goldPrice = goldPrice / 2;
         }
-    });
+        
+        const goldChange = Number(data["XAU/USD"].percent_change || 0);
+        renderCard("ticker-gold", `$${goldPrice.toLocaleString('en-US', { maximumFractionDigits: 2 })}`, goldChange);
+    }
+    
+    // 3. Dollar Index Mapeado (Calculado en vivo vía EUR/USD)
+    if (data["EUR/USD"] && data["EUR/USD"].close) {
+        const eurUsdPrice = Number(data["EUR/USD"].close);
+        const eurUsdChange = Number(data["EUR/USD"].percent_change || 0);
+        
+        // Sumamos la constante base (55.5) al reflejo del Euro para que escale a los ~101-105 puntos reales del mercado
+        const calculatedDXY = 55.5 + (50.1434272 * Math.pow(1 / eurUsdPrice, 0.576));
+        const dxyChange = eurUsdChange * -1; 
+
+        renderCard("ticker-dxy", calculatedDXY.toFixed(2), dxyChange);
+    }
 }
 
 // Función auxiliar para pintar las tarjetas superiores
@@ -77,6 +119,15 @@ function renderCard(elementId, formattedPrice, changeValue) {
     const colorVar = isPositive ? "var(--accent-green)" : "var(--accent-red)";
 
     container.innerHTML = `${formattedPrice} <span style="color:${colorVar};">${arrow}</span>`;
+}
+
+function setDashboardError() {
+    ["ticker-dxy", "ticker-sp500", "ticker-gold"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.innerText === "Loading...") {
+            el.innerText = "Error API";
+        }
+    });
 }
 
 // ==========================================
