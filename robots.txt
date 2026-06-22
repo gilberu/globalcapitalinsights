@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Allow: /sitemap.xml
 
 # Bloqueo de carpetas de código y recursos internos que no aportan contenido
 Disallow: /js/
